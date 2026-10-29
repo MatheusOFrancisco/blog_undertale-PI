@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'pixel_operator';
+  src: url('../assets/fonts/pixel_operator/PixelOperator.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html:has(:target) {
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 2rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+
+    align-self: center;
+
+    height: 10vh;
+    width: 85%;
+
+    font-family: 'pixel_operator';
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fffafa;
+
+    background-color: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(5px);
+    border-radius: 40px;
+
+    img{
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    a{
+        display: inline-block;
+        color: #fffafa;
+        text-decoration: none;
+        cursor: pointer;
+        animation: 0.3s;
+        transition: all 0.3s ease;
+    }
+
+    a:hover{
+        transform: scale(1.15);
+        text-decoration: underline;
+    }
+
+    .container_principal{
+        height: auto;
+        width: auto;
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        .lista_texto{
+            word-spacing: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .container_usuario{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+
+        width: 15rem;
+        height: 2rem;
+
+        border: #fffafa 0.2rem solid;
+    }
+}
+
+.section_home{
+    background: linear-gradient(to bottom, #003550, #5da8bd);
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+
+    .container_principal{
+        width: 90vw;
+        height: 75vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+    }
+
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.section_historia{
+    background-color: #5da8bd;
+
+    img{
+        width: 100%;
+    }
+}

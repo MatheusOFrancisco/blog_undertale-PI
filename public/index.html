@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,68 +8,148 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg" href="assets/imgs/determinacao.svg">
 </head>
+
 <body>
   <header>
     <div style="width: 32rem;" class="container_principal">
-      <div>
+      <a id="alma_header" onclick="trocar_alma()">
         <img src="assets/imgs/determinacao.svg" alt="determinação">
-      </div>
+      </a>
 
       <nav class="lista_texto">
-        <a href="">Menu</a>
-        <a href="">História</a>
-        <a href="">Personagens</a>
-        <a href="">Quiz</a>
-        <a href="">Discussões</a>
+        <a href="#menu">Menu</a>
+        <a href="#historia">História</a>
+        <a href="personagens.html">Personagens</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#discussoes">Discussões</a>
       </nav>
     </div>
 
     <div style="width: 20rem;" class="container_principal">
       <div>
-        <a id="link_audio" class="link_header" onclick="desmutar_musica()"><img src="assets/imgs/alto_falante_sem_som.svg" alt=""></a>
+        <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+          <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+        </a>
       </div>
 
       <div class="container_usuario">
-          <a>
-            login
-          </a>
+        <a href="login.html">login</a>
+        <a href="cadastro.html">cadastro</a>
 
-          <a>
-            cadastro
-          </a>
-
-          <img src="assets/imgs/save_amarelo.svg" alt="">
+        <img src="assets/imgs/save_amarelo.svg" alt="">
       </div>
     </div>
   </header>
 
-  <section class="section_home" id="home">
-    <div class="container_principal">
-      <div style="align-self: flex-end; transform: scale(0.65); transform-origin: right;">
-        <img src="assets/imgs/logo_undertale.svg" alt="">
-        <div>A queda para um novo mundo</div>
+
+  <section class="section_menu" id="menu">
+    <div id="espaco_em_branco"></div>
+
+    <div id="titulo">
+      <div id="subtitulo">
+        A queda para um novo mundo
       </div>
 
-      <div style="align-self: center; transform: scale(0.75); transform-origin: center;">
-        <a href="#historia"><img src="assets/imgs/seta-animada.svg" alt=""></a>
+      <div class="caixa_texto">
+        <img style="width: 20rem;" src="assets/imgs/logo_undertale.svg" alt="">
+      </div>
+    </div>
+
+    <div id="mont_ebott">
+      <div id="dialogo_montebott" class="caixa_texto">
+        * MONT EBOTT
       </div>
     </div>
   </section>
 
   <section class="section_historia" id="historia">
-    <div>
-      <img src="assets/imgs/mont_ebbot.svg" alt="">
+    <div id="inferior">
+      <div class="imagem_historia" id="inicio">
+        <img src="assets/imgs/moldura_folhagem.svg" alt="">
+      </div>
+
+      <div class="caixa_texto">
+        Há muito tempo, dois povos reinavam sobre a Terra: HUMANOS e MONSTROS.
+      </div>
+
+      <div class="imagem_historia" id="guerra">
+        <img src="assets/imgs/moldura_folhagem.svg" alt="">
+      </div>
+
+      <div class="caixa_texto">
+        Um dia, uma guerra se iniciou entre ambos.
+      </div>
+
+      <div class="imagem_historia" id="selo">
+        <img src="assets/imgs/moldura_folhagem.svg" alt="">
+      </div>
+
+      <div class="caixa_texto">
+        Depois de uma longa batalha, os humanos foram vitoriosos.<br>
+        Eles selaram os monstros no subsolo com um feitiço mágico.
+      </div>
+
+      <div class="imagem_historia" id="frisk_caindo">
+        <img src="assets/imgs/moldura_folhagem.svg" alt="">
+      </div>
+
+      <div class="caixa_texto">
+        Até que muito tempo depois...
+      </div>
     </div>
+
+    <div id="subsolo">
+      <div id="transicao_folhagem">
+        <img src="assets/imgs/folhagem_transicao_hq.svg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="section_quiz" id="quiz">
+
+  </section>
+
+  <section class="section_discussoes" id="discussoes">
+
   </section>
 
   <footer>
 
   </footer>
 
-  <audio id="audio_pagina" autoplay loop muted><source src="assets/music/Once_Upon_a_Time.flac" type="audio/flac"></audio>
-  
+  <audio id="audio_pagina" autoplay loop muted>
+    <source src="assets/music/Once_Upon_a_Time.flac" type="audio/flac">
+  </audio>
+
 </body>
 <script>
+  let alma_atual = 1
+
+  function trocar_alma() {
+    if (alma_atual == 7) {
+      alma_header.innerHTML = '<img src="assets/imgs/determinacao.svg" alt="Determinação">'
+      alma_atual = 1
+    } else if (alma_atual == 1) {
+      alma_header.innerHTML = '<img src="assets/imgs/paciencia.svg" alt="Paciência">'
+      alma_atual = 2
+    } else if (alma_atual == 2) {
+      alma_header.innerHTML = '<img src="assets/imgs/bravura.svg" alt="Bravura">'
+      alma_atual = 3
+    } else if (alma_atual == 3) {
+      alma_header.innerHTML = '<img src="assets/imgs/integridade.svg" alt="Integridade">'
+      alma_atual = 4
+    } else if (alma_atual == 4) {
+      alma_header.innerHTML = '<img src="assets/imgs/perseveranca.svg" alt="Perseverança">'
+      alma_atual = 5
+    } else if (alma_atual == 5) {
+      alma_header.innerHTML = '<img src="assets/imgs/bondade.svg" alt="Bondade">'
+      alma_atual = 6
+    } else if (alma_atual == 6) {
+      alma_header.innerHTML = '<img src="assets/imgs/justica.svg" alt="Justiça">'
+      alma_atual = 7
+    }
+  }
+
   function desmutar_musica() {
     let audio = document.getElementById("audio_pagina");
 
@@ -82,4 +163,5 @@
     }
   }
 </script>
+
 </html>

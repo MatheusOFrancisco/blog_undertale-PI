@@ -26,14 +26,35 @@ function trocar_alma() {
 }
 
 function desmutar_musica() {
-    let audio = document.getElementById("audio_pagina");
+    let audio = document.getElementById("audio_pagina")
 
     if (audio.muted) {
-        audio.muted = false;
-        audio.play();
+        audio.muted = false
+        audio.play()
         link_audio.innerHTML = '<img src="assets/imgs/alto_falante_com_som.svg" alt="">'
     } else {
-        audio.muted = true;
+        audio.muted = true
         link_audio.innerHTML = '<img src="assets/imgs/alto_falante_sem_som.svg" alt="">'
     }
 }
+
+let ultima_posicao = window.scrollY
+
+window.addEventListener('scroll', () => {
+
+    let posicao_atual = window.scrollY;
+
+    if (posicao_atual > ultima_posicao) {
+        // Se a posição atual do y for maior que a ultima posição significa q desceu e o header fica escondido
+        header.classList.add('escondido')
+    } else {
+        // Se a posição atual do y for menor que a ultima posição significa q desceu e o header fica aparecendo
+        header.classList.remove('escondido')
+    }
+
+    ultima_posicao = posicao_atual
+})
+
+ativador_header.addEventListener('mouseenter', () => {
+    header.classList.remove('escondido')
+})

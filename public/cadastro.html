@@ -15,36 +15,37 @@
 
 <body onload="listar()">
   <!--header inicio-->
-  <header>
-    <div style="width: 32rem;" class="container_principal">
-      <a id="alma_header" onclick="trocar_alma()">
-        <img src="assets/imgs/determinacao.svg" alt="determinação">
-      </a>
-
-      <nav class="lista_texto">
-        <a href="index.html#menu">Menu</a>
-        <a href="index.html#historia">História</a>
-        <a href="personagens.html">Personagens</a>
-        <a href="index.html#quiz">Quiz</a>
-        <a href="index.html#discussoes">Discussões</a>
-      </nav>
-    </div>
-
-    <div style="width: 20rem;" class="container_principal">
-      <nav>
-        <a id="link_audio" class="link_header" onclick="desmutar_musica()">
-          <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+  <section id="ativador_header">
+    <header id="header">
+      <div style="width: 28rem;" class="container_principal">
+        <a id="alma_header" onclick="trocar_alma()">
+          <img src="assets/imgs/determinacao.svg" alt="determinação">
         </a>
-      </nav>
 
-      <div class="container_usuario">
-        <a href="login.html">login</a>
-        <a href="cadastro.html">cadastro</a>
-
-        <img src="assets/imgs/save_amarelo.svg" alt="">
+        <nav class="lista_texto">
+          <a href="#menu">Menu</a>
+          <a href="#historia">História</a>
+          <a href="personagens.html">Personagens</a>
+          <a href="#discussoes">Discussões</a>
+        </nav>
       </div>
-    </div>
-  </header>
+
+      <div style="width: 20rem;" class="container_principal">
+        <nav>
+          <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+            <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+          </a>
+        </nav>
+
+        <div class="container_usuario">
+          <a href="login.html">login</a>
+          <a href="cadastro.html">cadastro</a>
+
+          <img src="assets/imgs/save_amarelo.svg" alt="">
+        </div>
+      </div>
+    </header>
+  </section>
   <!--header fim-->
 
   <section class="section_cadastro" id="cadastro">
@@ -102,8 +103,8 @@
 
             <div id="textos_senha">
               <label>Letras maiúsculas e minúsculas.</label>
-              <label>Um digito.</label>
-              <label>Um caractere especial.</label>
+              <label>Um digito. (0 - 9)</label>
+              <label>Um caractere especial. (Ex: ".", "!", "_")</label>
             </div>
           </div>
 
@@ -129,8 +130,8 @@
   </footer>
   <!--footer fim-->
 
-  <audio id="audio_pagina" autoplay loop muted>
-    <source src="assets/music/Start_Menu.flac" type="audio/flac">
+  <audio id="audio_pagina" loop muted>
+    <source src="assets/music/Fallen_Down.flac" type="audio/flac">
   </audio>
 </body>
 <script src="js/padroes.js"></script>

@@ -31,6 +31,16 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    /* overflow-x: hidden; */
+}
+
+*{
+    font-family: 'pixel_operator', sans-serif;
+}
+
+input{
+    font-family: sans-serif;
 }
 
 .caixa_texto {
@@ -38,14 +48,20 @@ body {
     width: fit-content;
     background-color: #0b0c10;
     border: #fffafa solid 0.5rem;
-    padding: 1rem;
 
     color: #fffafa;
     text-align: center;
 
-    font-family: 'pixel_operator', sans-serif;
     font-weight: bold;
     font-size: 2rem;
+
+    div{
+        margin: 1rem;
+    }
+
+    img{
+        margin: 1rem;
+    }
 }
 
 header {
@@ -67,7 +83,6 @@ header {
     height: 10vh;
     width: 85%;
 
-    font-family: 'pixel_operator', sans-serif;
     font-weight: bold;
     font-size: 1.5rem;
     color: #fffafa;
@@ -123,134 +138,11 @@ header {
     }
 }
 
-.section_menu {
-    background: linear-gradient(to bottom, #003550, #5da8bd);
-    height: fit-content;
+footer{
+    height: 30vh;
+    width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    background-color: #0b0c10;
 
-    #espaco_em_branco {
-        height: 20vh;
-    }
-
-    #titulo {
-        width: 90%;
-
-        gap: 2rem;
-
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        margin-bottom: 1rem;
-
-        #subtitulo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #fffafa;
-            font-family: 'pixel_operator', 'Comic Sans MS', cursive, sans-serif;
-        }
-    }
-
-    #mont_ebott {
-        animation: surgir 0.6s ease-out both;
-
-        width: 100%;
-        height: 100vh;
-
-        background-image: url(../assets/imgs/mont_ebott.svg);
-
-        display: flex;
-        align-items: ;
-
-        #dialogo_montebott {
-            margin-left: 10rem;
-        }
-    }
-}
-
-.section_historia{
-    height: fit-content;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    #inferior {
-        height: fit-content;
-        width: 100%;
-
-        background-color: #162b20;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-
-        .imagem_historia {
-            width: fit-content;
-            height: auto;
-            background-color: #c18326;
-
-            transform: scale(0.75);
-
-            img {
-                display: block;
-                width: 80rem;
-                height: 50rem;
-            }
-        }
-
-        #inicio{
-            background-image: url(../assets/imgs/humans_monsters_hq.svg);
-            background-size: 60%;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        #guerra{
-            background-image: url(../assets/imgs/war_of_humans_and_monsters.svg);
-            background-size: 100%;
-            background-position: bottom;
-            background-repeat: no-repeat; 
-        }
-
-        #selo{
-            background-image: url(../assets/imgs/sealing_monsters.svg);
-            background-size: 100%;
-            background-position: bottom;
-            background-repeat: no-repeat; 
-        }
-
-        #frisk_caindo{
-            background-image: url(../assets/imgs/falling_frisk.svg);
-            background-size: cover;
-            background-repeat: no-repeat; 
-        }
-    }
-
-    #subsolo{
-        height: fit-content;
-        width: 100%;
-
-        background-color: #311001;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
-        #transicao_folhagem{
-            height: auto;
-            width: 100%;
-
-            img{
-                width: 100%;
-                height: auto;
-            }
-        }
-    }
+    border-top: #fffafa solid 0.2rem;
 }

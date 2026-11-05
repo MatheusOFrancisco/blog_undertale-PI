@@ -2,100 +2,172 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papo do Subsolo - Cadastro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="icon" type="image/svg" href="assets/imgs/determinacao.svg">
+  <style>
 
-  <title>AquaTech | Cadastro</title>
-
-  <script src="./js/sessao.js"></script>
-
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  </style>
 </head>
 
 <body onload="listar()">
   <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
+  <header>
+    <div style="width: 32rem;" class="container_principal">
+      <a id="alma_header" onclick="trocar_alma()">
+        <img src="assets/imgs/determinacao.svg" alt="determinação">
+      </a>
+
+      <nav class="lista_texto">
+        <a href="index.html#menu">Menu</a>
+        <a href="index.html#historia">História</a>
+        <a href="personagens.html">Personagens</a>
+        <a href="index.html#quiz">Quiz</a>
+        <a href="index.html#discussoes">Discussões</a>
+      </nav>
     </div>
-  </div>
+
+    <div style="width: 20rem;" class="container_principal">
+      <nav>
+        <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+          <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+        </a>
+      </nav>
+
+      <div class="container_usuario">
+        <a href="login.html">login</a>
+        <a href="cadastro.html">cadastro</a>
+
+        <img src="assets/imgs/save_amarelo.svg" alt="">
+      </div>
+    </div>
+  </header>
   <!--header fim-->
 
-  <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
+  <section class="section_cadastro" id="cadastro">
+    <div id="espaco_em_branco">
     </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
+
+    <div id="container_principal">
+      <div id="container_mensagem">
+        <div class="caixa_texto">
+          <div>Já possui Cadastro?<br>
+            <a href="login.html">Faça seu Login!</a>
           </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
-        </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
 
-        <div id="div_erros_login"></div>
+        <img id="echo_flower" src="assets/imgs/echo_flower.svg" alt="">
+      </div>
+
+      <div id="estatua">
+        <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
+      </div>
+
+      <div id="container_main">
+        <div id="main">
+          <div>
+            <div class="titulo_input">
+              Nickname:
+            </div>
+
+            <input id="ipt_nickname" type="text">
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              E-mail:
+            </div>
+
+            <input id="ipt_email" type="text">
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              <label>Senha:</label>
+              <a id="mostrar" onclick="mostrar_senha()">◉</a>
+            </div>
+
+            <input oninput="verificar_senha()" id="ipt_senha" type="password">
+          </div>
+
+          <div class="verificar_senha" id="verificar_senha">
+            <div id="coracoes">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+            </div>
+
+            <div id="textos_senha">
+              <label>Letras maiúsculas e minúsculas.</label>
+              <label>Um digito.</label>
+              <label>Um caractere especial.</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              Confirme Sua senha:
+            </div>
+
+            <input id="ipt_confirmacao_senha" type="password">
+          </div>
+
+          <div>
+            <button onclick="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
-    </div>
-  </div>
+  <footer>
+
+  </footer>
   <!--footer fim-->
+
+  <audio id="audio_pagina" autoplay loop muted>
+    <source src="assets/music/Start_Menu.flac" type="audio/flac">
+  </audio>
 </body>
-
-</html>
-
+<script src="js/padroes.js"></script>
 <script>
+  function chover() {
+    let chuva = document.createElement('div');
+    chuva.classList.add('chuva');
+
+    chuva.style.left = Math.random() * 97 + 'vw';
+
+    let tempo_animacao = Math.random() * 1 + 0.5;
+    chuva.style.animationDuration = tempo_animacao + 's';
+
+    document.body.appendChild(chuva);
+
+    setTimeout(() => {
+      chuva.remove();
+    }, tempo_animacao * 1000);
+  }
+
+  setInterval(chover, 50);
+
+  function mostrar_senha() {
+    let tipo_input = ipt_senha.type
+
+    if (tipo_input == 'password') {
+      mostrar.innerHTML = '◎'
+      ipt_senha.type = 'text'
+    } else {
+      mostrar.innerHTML = '◉'
+      ipt_senha.type = 'password'
+    }
+  }
+
+  function verificar_senha() {
+    let senha = ipt_senha.value
+  }
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
   let listaEmpresasCadastradas = [];
@@ -209,3 +281,5 @@
     cardErro.style.display = "none";
   }
 </script>
+
+</html>

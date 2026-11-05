@@ -1,0 +1,201 @@
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(-5deg);
+    }
+
+    66% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.section_cadastro {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100%;
+
+    background-color: red;
+
+    background: radial-gradient(circle, #00093a 0%, #000313 100%);
+
+    #espaco_em_branco {
+        height: 12vh;
+    }
+
+    #container_principal {
+        height: 88vh;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+
+        #container_mensagem {
+            width: 40vw;
+            height: 100%;
+
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+
+            .caixa_texto {
+                align-self: center;
+
+                a {
+                    color: purple;
+                }
+            }
+
+            .caixa_texto:hover {
+                animation: shake infinite 2s;
+                animation-timing-function: linear;
+            }
+
+            #echo_flower {
+                align-self: flex-start;
+                width: 15rem;
+            }
+        }
+
+        #estatua {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            width: fit-content;
+            height: 100%;
+
+            img {
+                width: 10vw;
+            }
+        }
+
+        #container_main {
+            height: 100%;
+            width: 40vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            #main {
+                height: 75vh;
+                width: 30vw;
+
+                border-radius: 20px;
+
+                background-color: rgba(0, 0, 0, 0.43);
+                backdrop-filter: blur(5px);
+
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 1);
+
+                z-index: 20;
+
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-direction: column;
+
+                div {
+                    height: fit-content;
+                    width: 80%;
+
+                    .titulo_input {
+                        width: 100%;
+                        font-size: 1.5rem;
+                        color: #fffafa;
+
+                        display: flex;
+                        justify-content: space-between;
+
+                        a {
+                            cursor: pointer;
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        height: 1.5rem;
+                    }
+
+                    button {
+                        width: 100%;
+                        height: 3rem;
+
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+                }
+
+                #verificar_senha {
+                    display: flex;
+                    justify-content: space-between;
+
+                    #coracoes {
+                        display: flex;
+                        flex-direction: column;
+
+                        .coracao {
+                            width: 2rem;
+                        }
+                    }
+
+                    #textos_senha {
+                        height: 100%;
+
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+
+                        label {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* CHUVINHA */
+
+@keyframes chuva_caindo {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(98vh);
+    }
+}
+
+.chuva {
+    position: absolute;
+
+    align-self: center;
+
+    width: 2px;
+    height: 15px;
+
+    background-color: #fffafa;
+
+    animation: chuva_caindo linear infinite;
+    top: -15px;
+}
+
+body {
+    position: relative;
+}

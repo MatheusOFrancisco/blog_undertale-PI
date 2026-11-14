@@ -1,0 +1,380 @@
+#section_principal {
+    background: radial-gradient(circle, #3a002a 0%, #0b0c10 100%);
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+
+    #espaco_em_branco {
+        z-index: 2;
+        height: 14vh;
+    }
+
+    main {
+        z-index: 2;
+
+        width: 100%;
+        height: 86vh;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        gap: 2rem;
+
+        .desativo {
+            display: none !important;
+        }
+
+        #catalogo_personagens {
+            width: 73vw;
+            height: 74vh;
+
+            .catalogo_desativo {
+                display: none !important;
+            }
+
+            section {
+                font-size: 2rem;
+                font-weight: bolder;
+                width: 100%;
+                height: 100%;
+                gap: 1rem;
+            }
+
+            #personagem_ruins {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 6rem;
+                        }
+                    }
+                }
+            }
+
+            #personagem_snowdin {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 6rem;
+                        }
+                    }
+                }
+            }
+
+            #personagem_waterfall {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+
+                font-size: 3rem;
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 8rem;
+                        }
+                    }
+                }
+            }
+
+            #personagem_hotland {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 6rem;
+                        }
+                    }
+                }
+            }
+
+            #personagem_newhome {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+
+                font-size: 3.5rem;
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 10rem;
+                        }
+                    }
+                }
+            }
+
+            #personagem_barrier {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+
+                font-size: 5rem;
+
+                .quadrado {
+                    .previa_img {
+                        height: 70%;
+                        width: 100%;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            height: 12rem;
+                        }
+                    }
+                }
+            }
+
+            .quadrado {
+                border: #fffafa 0.5rem solid;
+
+                border-bottom: none;
+
+                display: flex;
+                flex-direction: column;
+
+                .nome_monstro {
+                    z-index: 2;
+
+                    height: 30%;
+                    width: 100%;
+
+                    background-color: #fffafa;
+
+                    color: #0b0c10;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    label {
+                        cursor: pointer;
+                    }
+                }
+
+                .previa_img{
+                    z-index: 1;
+                    background-color: #0b0c10;
+                }
+            }
+
+            .quadrado:hover img{
+                transform: scale(1.1);
+            }
+        }
+
+        #descricoes_personagens {
+            width: 73vw;
+            height: 72vh;
+            background-color: #0b0c10;
+
+            border: #fffafa 0.5rem solid;
+
+            .personagem_desativo {
+                display: none !important;
+            }
+
+            section {
+                height: 100%;
+                width: 100%;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+
+                .container_esquerdo {
+                    height: 90%;
+                    width: 65%;
+
+                    border: 0.5rem #fffafa solid;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .head {
+                        height: 8%;
+                        width: 100%;
+
+                        display: flex;
+                        align-items: center;
+
+                        border-bottom: #fffafa 0.2rem solid;
+
+                        a {
+                            height: 100%;
+
+                            margin-left: 0.5rem;
+                            margin-right: 1rem;
+
+                            display: flex;
+                            align-items: center;
+
+                            img {
+                                height: 60%;
+                                rotate: -180deg;
+                            }
+                        }
+
+                        label {
+                            color: #fffafa;
+                            font-weight: bolder;
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .descricao {
+                        height: 92%;
+                        width: 100%;
+
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-around;
+
+                        .container_conteudo {
+                            height: 20%;
+                            width: 70%;
+
+                            display: flex;
+                            align-items: center;
+
+                            border: #fffafa 0.5rem solid;
+
+                            color: #fffafa;
+                            font-size: 1.2rem;
+                            font-weight: bolder;
+                            text-align: justify;
+
+                            .titulo_campo {
+                                color: #ffff00;
+                            }
+
+                            label {
+                                margin: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                .container_direito {
+                    height: 90%;
+                    width: 25%;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    border: 0.5rem #fffafa solid;
+
+                    img {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+
+    #nav_lateral {
+        width: 12vw;
+        height: 72vh;
+
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        background-color: #0b0c10;
+
+        border: #fffafa 0.5rem solid;
+
+        color: #fffafa;
+        text-align: start;
+
+        font-weight: bold;
+        font-size: 2rem;
+
+        a {
+            display: flex;
+            align-items: center;
+
+            height: 100%;
+            width: 100%;
+
+            text-indent: 2rem;
+
+            color: #fffafa;
+            font-size: 2rem;
+
+            font-weight: bolder;
+
+            width: 100%;
+
+            label {
+                cursor: pointer;
+            }
+        }
+
+        .ativo {
+            color: #ffff00;
+        }
+    }
+
+    #nav_lateral:has(.texto_desativo:hover) .ativo {
+        color: #ffffff;
+    }
+
+    #nav_lateral a:hover label {
+        color: #ffff00;
+    }
+}

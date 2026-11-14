@@ -1,13 +1,1895 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Papo do Subsolo - Início</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/personagens.css">
   <link rel="icon" type="image/svg" href="assets/imgs/determinacao.svg">
 </head>
+
 <body>
-    
+  <section id="ativador_header">
+    <header id="header">
+      <div style="width: 28rem;" class="container_principal">
+        <a id="alma_header" onclick="trocar_alma()">
+          <img src="assets/imgs/determinacao.svg" alt="determinação">
+        </a>
+
+        <nav class="lista_texto">
+          <a href="index.html#menu">Menu</a>
+          <a href="index.html#historia">História</a>
+          <a href="index.html#discussoes">Discussões</a>
+          <a href="personagens.html">Personagens</a>
+        </nav>
+      </div>
+
+      <div style="width: 20rem;" class="container_principal">
+        <nav>
+          <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+            <img src="assets/imgs/alto_falante_sem_som.svg">
+          </a>
+        </nav>
+
+        <div class="container_usuario">
+          <a href="login.html">login</a>
+          <a href="cadastro.html">cadastro</a>
+
+          <img src="assets/imgs/save_amarelo.svg">
+        </div>
+      </div>
+    </header>
+  </section>
+
+  <section id="section_principal">
+    <div id="espaco_em_branco"></div>
+
+    <main>
+      <nav id="nav_lateral">
+        <a id="a_ruins" class="ativo" onclick="ativar_ruins()"><label>Ruins</label></a>
+        <a id="a_snowdin" class="texto_desativo" onclick="ativar_snowdin()"><label>Snowdin</label></a>
+        <a id="a_waterfall" class="texto_desativo" onclick="ativar_waterfall()"><label>Waterfall</label></a>
+        <a id="a_hotland" class="texto_desativo" onclick="ativar_hotland()"><label>Hotland</label></a>
+        <a id="a_newhome" class="texto_desativo" onclick="ativar_newhome()"><label>New Home</label></a>
+        <a id="a_barrier" class="texto_desativo" onclick="ativar_barrier()"><label>Barrier</label></a>
+      </nav>
+
+      <section class="" id="catalogo_personagens">
+        <section class="" id="personagem_ruins">
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Dummy')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/dummybattle.svg"></div>
+            <div class="nome_monstro"><label>Dummy</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Froggit')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/froggit.svg"></div>
+            <div class="nome_monstro"><label>Froggit</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Whimsun')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/whimsun.svg"></div>
+            <div class="nome_monstro"><label>Whimsun</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Moldsmal')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/moldsmal.svg"></div>
+            <div class="nome_monstro"><label>Moldsmal</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Ghost_Fight.flac', b = 'personagem_Napstablook')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/napstablook.svg"></div>
+            <div class="nome_monstro"><label>Napstablook</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Vegetoid')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/vegetoid.svg"></div>
+            <div class="nome_monstro"><label>Vegetoid</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Migosp')" class="quadrado">
+            <div class="previa_img"><img src="assets/imgs/migosp.svg"></div>
+            <div class="nome_monstro"><label>Migosp</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Loox')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/loox.svg"></div>
+            <div class="nome_monstro"><label>Loox</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Heartache.flac', b = 'personagem_Toriel')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/toriel.svg"></div>
+            <div class="nome_monstro"><label>Toriel</label></div>
+          </a>
+        </section>
+
+        <section class="catalogo_desativo" id="personagem_snowdin">
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Snowdrake')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/snowdrake.svg"></div>
+            <div class="nome_monstro"><label>Snowdrake</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Chilldrake')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/chilldrake.svg"></div>
+            <div class="nome_monstro"><label>Chilldrake</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_IceCap')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/icecap.svg"></div>
+            <div class="nome_monstro"><label>Ice Cap</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Doggo')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/doggo.svg"></div>
+              <div class="nome_monstro"><label>Doggo</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_LesserDog')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/lesserdog.svg"></div>
+            <div class="nome_monstro"><label>Lesser Dog</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Jerry')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/jerry.svg"></div>
+            <div class="nome_monstro"><label>Jerry</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Dogamy')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/casaldog.svg"></div>
+            <div class="nome_monstro"><label>Dogamy</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Dogaressa')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/casaldog.svg"></div>
+            <div class="nome_monstro"><label>Dogaressa</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Gyftrot')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/gyftrot.svg"></div>
+            <div class="nome_monstro"><label>Gyftrot</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Glyde')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/glyde.svg"></div>
+            <div class="nome_monstro"><label>Glyde</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Dogsong.flac', b = 'personagem_GreaterDog')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/greaterdog.svg"></div>
+            <div class="nome_monstro"><label>Greater Dog</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Bonetrousle.flac', b = 'personagem_Papyrus')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/papyrus.svg"></div>
+            <div class="nome_monstro"><label>Papyrus</label></div>
+          </a>
+        </section>
+
+        <section class="catalogo_desativo" id="personagem_waterfall">
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Aaron')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/aaron.svg"></div>
+            <div class="nome_monstro"><label>Aaron</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Woshua')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/woshua.svg"></div>
+            <div class="nome_monstro"><label>Woshua</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Shyren')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/shyren.svg"></div>
+            <div class="nome_monstro"><label>Shyren</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Temmie')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/temmie.svg"></div>
+            <div class="nome_monstro"><label>Temmie</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Moldbygg')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/moldbygg.svg"></div>
+            <div class="nome_monstro"><label>Moldbygg</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Dummy!.flac', b = 'personagem_MadDummy')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/maddummy.svg"></div>
+            <div class="nome_monstro"><label>Mad Dummy</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'Battle_Against_a_True_Hero.flac', b = 'personagem_Undyne')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/undyne.svg"></div>
+            <div class="nome_monstro"><label>Undyne</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_MonsterKid')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/monsterKid.svg"></div>
+            <div class="nome_monstro"><label>Monster Kid</label></div>
+          </a>
+        </section>
+
+        <section class="catalogo_desativo" id="personagem_hotland">
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Vulkin')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/vulkin.svg"></div>
+            <div class="nome_monstro"><label>Vulkin</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Tsunderplane')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/tsunderplane.svg"></div>
+            <div class="nome_monstro"><label>Tsunderplane</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Pyrope')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/pyrope.svg"></div>
+              <div class="nome_monstro"><label>Pyrope</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_RoyalGuards')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/royalguards.svg"></div>
+            <div class="nome_monstro"><label>Royal Guards</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Spider_dance.flac', b = 'personagem_Muffet')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/muffet.svg"></div>
+              <div class="nome_monstro"><label>Muffet</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Alphys')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/alphys.svg"></div>
+            <div class="nome_monstro"><label>Alphys</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Madjick')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/madjick.svg"></div>
+            <div class="nome_monstro"><label>Madjick</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_KnightKnight')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/knightknight.svg"></div>
+            <div class="nome_monstro"><label>Knight Knight</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_FinalFroggit')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/finalfroggit.svg"></div>
+            <div class="nome_monstro"><label>Final Froggit</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Whimsalot')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/whimsalot.svg"></div>
+            <div class="nome_monstro"><label>Whimsalot</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Enemy_Approaching.flac', b = 'personagem_Astigmatism')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/astigmatism.svg"></div>
+            <div class="nome_monstro"><label>Astigmatism</label></div>
+          </a>
+
+          <a onclick="ativar_personagem(a = 'assets/music/Death_by_Glamour.flac', b = 'personagem_Mettaton')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/mettaton.svg"></div>
+            <div class="nome_monstro"><label>Mettaton</label></div>
+          </a>
+        </section>
+
+        <section class="catalogo_desativo" id="personagem_newhome">
+          <a onclick="ativar_personagem(a = 'assets/music/MEGALOVANIA.flac', b = 'personagem_Sans')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/sans.svg"></div>
+            <div class="nome_monstro"><label>Sans</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/ASGORE.flac', b = 'personagem_AsgoreDreemurr')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/asgoredreemurr.svg"></div>
+            <div class="nome_monstro"><label>Asgore Dreemurr</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Your_Best_Friend.flac', b = 'personagem_Flowey')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/flowey.svg"></div>
+            <div class="nome_monstro"><label>Flowey</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/Your_Best_Nightmare.flac', b = 'personagem_OmegaFlowey')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/omegaflowey.svg"></div>
+            <div class="nome_monstro"><label>Omega Flowey</label></div>
+          </a>
+        </section>
+
+        <section class="catalogo_desativo" id="personagem_barrier">
+          <a onclick="ativar_personagem(a = 'assets/music/Hopes_and_Dreams.flac', b = 'personagem_AsrielDreemurr')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/asrieldreemurr.svg"></div>
+            <div class="nome_monstro"><label>Asriel Dreemurr</label></div>
+          </a>
+          <a onclick="ativar_personagem(a = 'assets/music/barrier.flac', b = 'personagem_Chara')" class="quadrado">
+          <div class="previa_img"><img src="assets/imgs/chara.svg"></div>
+            <div class="nome_monstro"><label>Chara</label></div>
+          </a>
+        </section>
+      </section>
+
+      <section class="desativo" id="descricoes_personagens">
+        <section id="personagem_Dummy">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Dummy</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>boneco de treinamento utilizado por Toriel, com aparência simples e sem personalidade muito
+                  desenvolvida.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>não possui ataques. O encontro funciona como tutorial de interação.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>0 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/dummybattle.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Froggit">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Froggit</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>pequeno monstro semelhante a um sapo. É tímido, inseguro e bastante influenciável.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>dispara moscas que perseguem a alma e realiza movimentos em diferentes direções. Pode ser poupado
+                  com elogios ou ameaças.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>4 / 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/froggit.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Whimsun">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Whimsun</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>pequena criatura alada, extremamente medrosa e sensível.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis que atravessam a arena em movimentos delicados. Pode fugir quando recebe
+                  Console.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>5 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/whimsun.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Napstablook">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Napstablook</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>fantasma extremamente tímido e melancólico, apaixonado por música.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza lágrimas que caem pela arena, além de padrões de projéteis. Pode ser tranquilizado com
+                  elogios e incentivo.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>10 / 10</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/napstablook.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Vegetoid">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Vegetoid</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>monstro vegetal que acredita em alimentação saudável e possui personalidade bastante
+                  peculiar.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>lança vegetais e cenouras. Alguns projéteis verdes recuperam a vida do jogador.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>6 / 6</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/vegetoid.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Migosp">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Migosp</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura semelhante a um inseto, agressiva quando está acompanhada, mas bastante tranquila quando
+                  sozinha.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza pequenos insetos como projéteis. Quando se torna o último inimigo, começa a
+                  dançar.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>7 / 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/migosp.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Loox">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Loox</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura flutuante com um único olho enorme. Não gosta de ser provocada.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza esferas que ricocheteiam pela arena e projéteis alongados que avançam em direção às
+                  bordas.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>6 / 6</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/loox.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Toriel">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Toriel</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>antiga rainha do Subterrâneo, protetora das Ruínas e figura maternal. É muito poderosa e
+                  extremamente protetora.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza bolas de fogo em espirais, círculos e movimentos que acompanham a alma. Conforme a luta
+                  avança, começa a evitar intencionalmente acertar o protagonista.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>80 / 80</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/toriel.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Snowdrake">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Snowdrake</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura semelhante a um réptil ou pássaro coberto de gelo. É um adolescente que tenta ser
+                  comediante.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis em formato de meia-lua que atravessam a arena em trajetórias curvas.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>12 / 7</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/snowdrake.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Chilldrake">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Chilldrake</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura semelhante a Snowdrake, mas com personalidade rebelde e aparência mais séria.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis de gelo em diferentes trajetórias.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>12 / 7</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/chilldrake.svg">
+          </div>
+        </section>
+
+        <section id="personagem_IceCap">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Ice Cap</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura de gelo extremamente vaidosa, apaixonada pelo próprio chapéu.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques de gelo e projéteis que atravessam a arena.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>11 / 4</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/icecap.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Doggo">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Doggo</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>cachorro da Guarda Real que depende do tato para identificar objetos e movimentos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques azuis, que causam dano somente quando o jogador se movimenta.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>13 / 7</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/doggo.svg">
+          </div>
+        </section>
+
+        <section id="personagem_LesserDog">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Lesser Dog</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>cachorro pequeno, extremamente carinhoso e que adora receber atenção.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ossos e projéteis azuis. Pode ser poupado com carinho.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>12 / 2</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/lesserdog.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Jerry">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Jerry</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura extremamente inconveniente, preguiçosa e irritante para os outros monstros.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>não possui ataques próprios. Sua presença prolonga os ataques dos demais inimigos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>0 / 30</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/Jerry.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Dogamy">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Dogamy</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>macho do casal de cães da Guarda Real, extremamente leal ao outro.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utilizam ataques combinados de ossos e projéteis azuis. O jogador precisa interagir com
+                  ambos..</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>14 / 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/casaldog.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Dogaressa">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Dogaressa</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>fêmea do casal de cães da Guarda Real, extremamente leal ao outro.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utilizam ataques combinados de ossos e projéteis azuis. O jogador precisa interagir com
+                  ambos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>14 / 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/casaldog.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Gyftrot">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Gyftrot</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura semelhante a uma rena, coberta por decorações natalinas.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza presentes e flocos de neve. O jogador pode remover suas decorações durante o
+                  encontro.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>16 / 8</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/gyftrot.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Glyde">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Glyde</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura voadora arrogante, que acredita ser extremamente importante.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis rápidos e ataques que aumentam de intensidade conforme suas reações.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>HIGH / HIGH</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/glyde.svg">
+          </div>
+        </section>
+
+        <section id="personagem_GreaterDog">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Greater Dog</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>cachorro enorme da Guarda Real, brincalhão e extremamente carente de atenção.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ossos, ataques azuis e movimentos que exigem alternância entre ficar parado e se
+                  movimentar.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>15 / 8</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/greaterdog.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Papyrus">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_snowdin()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Papyrus</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>esqueleto alto, carismático e dramático. Sonha em entrar para a Guarda Real e capturar um
+                  humano.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ossos e plataformas. Transforma a alma em azul, fazendo com que ela seja afetada pela
+                  gravidade.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>20 / 20</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/papyrus.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Aaron">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Aaron</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>monstro musculoso, semelhante a um cavalo-marinho humanoide. É vaidoso e gosta de exibir seus
+                  músculos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis que atravessam a arena. Pode aumentar a intensidade de sua demonstração
+                  muscular.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>24 / 12</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/aaron.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Woshua">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Woshua</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura aquática que parece uma máquina de limpeza. É obcecada por higiene.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>lança gotas de água e projéteis verdes que podem recuperar vida.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>18 / 5</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/woshua.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Shyren">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Shyren</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura aquática semelhante a uma sereia, extremamente tímida e insegura com sua voz.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ondas sonoras e ataques relacionados à música. O jogador pode cantar junto com
+                  ela.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>19 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/shyren.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Temmie">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Temmie</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura com aparência de mistura entre gato e cachorro. Possui comportamento infantil e fala
+                  peculiar.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>possui um encontro simples, com ataques característicos e possibilidade de interações
+                  cômicas.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>TEM / TEM</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/temmie.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Moldbygg">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Moldbygg</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura gelatinosa mais robusta, capaz de alterar sua aparência.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza projéteis que atravessam a arena em diferentes trajetórias.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>18 / 18</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/moldbygg.svg">
+          </div>
+        </section>
+
+        <section id="personagem_MadDummy">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Mad Dummy</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>boneco fantasma extremamente irritado, que deseja vingança contra o protagonista.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>controla pequenos bonecos que disparam projéteis. O jogador precisa fazer com que os ataques
+                  atinjam o próprio Mad Dummy. Posteriormente, aparecem foguetes teleguiados.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>30 / YES</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/maddummy.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Undyne">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Undyne</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>guerreira peixe humanoide, líder da Guarda Real. É extremamente determinada, disciplinada e
+                  agressiva.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza lanças em diferentes direções. Na forma verde, a alma fica presa e precisa bloquear os
+                  ataques com um escudo. Na forma vermelha, pode fugir livremente.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>50 / 20</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/undyne.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Vulkin">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Vulkin</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>pequena criatura vulcânica que gosta de demonstrar afeto</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques relacionados ao fogo e ao calor. Pode aumentar sua força quando recebe
+                  encorajamento.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>25 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/vulkin.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Tsunderplane">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Tsunderplane</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>avião-monstro com personalidade tsundere. Finge não gostar do protagonista.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>realiza movimentos aéreos e lança bombas. O jogador precisa tocar suas áreas verdes.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>25 / 26</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/tsunderplane.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Pyrope">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Pyrope</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura de fogo que gosta de aumentar sua própria temperatura.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques laranja, que só causam dano quando o jogador permanece parado.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>29 / 14</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/pyrope.svg">
+          </div>
+        </section>
+
+        <section id="personagem_RoyalGuards">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Royal Guards</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>integrantes da Guarda Real, ambos parecem esconder um caso.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utilizam ataques combinados. O jogador pode interagir com os dois.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>30 / 20</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/royalguards.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Muffet">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Muffet</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>aranha humanoide que administra uma confeitaria e lidera uma organização de aranhas. É gananciosa
+                  e gosta de dinheiro.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza teias, aranhas e ataques em formato de pernas. A alma fica roxa e precisa se movimentar
+                  entre linhas.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>38,8 / 18,8</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/muffet.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Mettaton">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Mettaton</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>robô de televisão criado por Alphys. É dramático, vaidoso e obcecado por audiência.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>participa de programas de perguntas, desafios e apresentações. Em determinado momento, a alma
+                  fica amarela e pode disparar projéteis.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>30 / 255</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/mettaton.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Sans">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_newhome()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Sans</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>esqueleto baixo, preguiçoso e sarcástico. É irmão de Papyrus e possui habilidades
+                  extraordinárias.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ossos, Gaster Blasters e ataques que continuam acontecendo durante os menus. Também
+                  possui o efeito KR, que provoca dano adicional ao longo do tempo.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>1 / 1</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/sans.svg">
+          </div>
+        </section>
+
+        <section id="personagem_AsgoreDreemurr">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_newhome()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Asgore Dreemurr</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>antigo rei do Subterrâneo, pai de Asriel e ex-marido de Toriel. É um monstro enorme, poderoso e
+                  melancólico.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza seu tridente e grandes sequências de bolas de fogo, incluindo ataques que perseguem a
+                  alma. Destrói o botão MERCY durante o combate.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>80 / 80</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/asgoredreemurr.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Flowey">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_newhome()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Flowey</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>Flowey é uma flor que possui consciência, personalidade própria e capacidade de manipular SAVE e LOAD. Apesar de sua aparência amigável, é cruel, manipulador e gosta de brincar com os outros.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>cria pequenos projéteis em formato de sementes e tenta convencer o protagonista de que eles são inofensivos. Depois, revela sua verdadeira intenção e tenta atacar.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>não disponível.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/omegaflowey.svg">
+          </div>
+        </section>
+
+        <section id="personagem_OmegaFlowey">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_newhome()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Omega Flowey</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>transformação monstruosa de Flowey após absorver as seis almas humanas. Possui aparência grotesca
+                  e mistura elementos orgânicos, mecânicos e tecnológicos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques de diferentes tipos, incluindo armamentos, imagens e padrões que ocupam grande
+                  parte da tela. O jogador precisa recuperar as seis almas humanas para enfrentá-lo.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>não disponível.</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/omegaflowey.svg">
+          </div>
+        </section>
+
+        <section id="personagem_AsrielDreemurr">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_barrier()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Asriel Dreemurr</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>transformação de Flowey após recuperar sua forma original. Aparência muito mais poderosa, com
+                  asas e uma enorme quantidade de energia mágica.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza estrelas, raios, explosões de energia e o ataque Hyper Goner, que ocupa praticamente toda
+                  a arena. O jogador precisa utilizar SAVE para recuperar as almas e superar o confronto.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>infinito / infinito</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/asrieldreemurr.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Chara">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_barrier()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Chara</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>Chara é a primeira humana a cair no Subterrâneo. Seu plano de escapar do Subterrâneo culminou sua
+                  morte e a de Asriel.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>Na rota Genocida, sua presença se torna cada vez mais evidente conforme o frisk elimina os
+                  monstros. Ao final, ela aparece diante do jogador e um golpe é realizado sem que exista uma
+                  batalha.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>infinito / infinito</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/chara.svg">
+          </div>
+        </section>
+
+        <section id="personagem_MonsterKid">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_waterfall()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Monster Kid</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>jovem monstro reptiliano, admirador de Undyne.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>o confronto é interrompido quando Undyne recebe o golpe destinado a ele.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>9 / 2</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/monsterkid.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Alphys">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Alphys</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>é tímida, ansiosa e costuma ter dificuldades para se comunicar, mas possui grande conhecimento
+                  científico e tecnológico.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>Alphys não enfrenta o protagonista diretamente.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>0 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/alphys.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Madjick">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Madjick</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura mágica semelhante a um mago, que utiliza orbes flutuantes.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza esferas mágicas perseguidoras e ataques que podem inverter os controles.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>29 / 24</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/madjick.svg">
+          </div>
+        </section>
+
+        <section id="personagem_KnightKnight">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Knight Knight</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>cavaleira monstruosa com armadura, que parece estar constantemente sonolenta.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza ataques relacionados ao Sol e à Lua, com projéteis que atravessam a arena.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>36 / 36</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/knightknight.svg">
+          </div>
+        </section>
+
+        <section id="personagem_FinalFroggit">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Final Froggit</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura semelhante a Froggit, com poderes mágicos mais desenvolvidos.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza moscas perseguidoras e ataques em diferentes direções.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>30 / 24</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/finalfroggit.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Whimsalot">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Whimsalot</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura alada semelhante a Whimsun.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza borboletas que circulam a alma e projéteis que surgem pela parte inferior da
+                  arena.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>34 / 12</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/whimsalot.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Astigmatism">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_hotland()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Astigmatism</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>enorme olho flutuante, com comportamento provocador.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>utiliza esferas que ricocheteiam e mudam de direção.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>32 / 26</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/astigmatism.svg">
+          </div>
+        </section>
+
+        <section id="personagem_Moldsmal">
+          <div class="container_esquerdo">
+            <div class="head">
+              <a onclick="desativar_descricao(); ativar_ruins()"><img src="assets/imgs/skip_branco.svg"></a>
+              <label>Moldsmal</label>
+            </div>
+
+            <div class="descricao">
+              <div class="container_conteudo">
+                <label class="titulo_campo">Características:</label>
+                <label>criatura gelatinosa, sem forma definida. Possui uma aparência simples e comportamento
+                  relativamente tranquilo.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">Batalha:</label>
+                <label>dispara pequenas partículas que caem em zigue-zague e se dividem em projéteis menores.</label>
+              </div>
+
+              <div class="container_conteudo">
+                <label class="titulo_campo">ATK/DEF:</label>
+                <label>4 / 0</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="container_direito">
+            <img src="assets/imgs/moldsmal.svg">
+          </div>
+        </section>
+      </section>
+    </main>
+  </section>
+
+  <footer>
+
+  </footer>
+
+  <audio id="audio_pagina" loop muted>
+    <source src="assets/music/Ruins.flac" type="audio/flac">
+  </audio>
 </body>
+<script src="js/padroes.js"></script>
+<script>
+  function desativar_todos_nav() {
+    a_ruins.className = "texto_desativo"
+    a_snowdin.className = "texto_desativo"
+    a_waterfall.className = "texto_desativo"
+    a_hotland.className = "texto_desativo"
+    a_newhome.className = "texto_desativo"
+    a_barrier.className = "texto_desativo"
+
+    personagem_ruins.className = "catalogo_desativo"
+    personagem_snowdin.className = "catalogo_desativo"
+    personagem_waterfall.className = "catalogo_desativo"
+    personagem_hotland.className = "catalogo_desativo"
+    personagem_newhome.className = "catalogo_desativo"
+    personagem_barrier.className = "catalogo_desativo"
+  }
+
+  function continuar_tocando() {
+    let audio = document.getElementById("audio_pagina")
+    if (audio.muted == false) {
+      audio.play()
+    }
+  }
+
+  function desativar_descricao() {
+    descricoes_personagens.className = "desativo"
+    catalogo_personagens.className = ""
+  }
+
+  function ativar_ruins() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #3a002a 0%, #0b0c10 100%)"
+    a_ruins.className = "ativo"
+    personagem_ruins.className = ""
+
+    audio_pagina.src = `assets/music/Ruins.flac`
+    continuar_tocando()
+  }
+
+  function ativar_snowdin() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #789db4 0%, #0b0c10 100%)"
+    a_snowdin.className = "ativo"
+    personagem_snowdin.className = ""
+
+    audio_pagina.src = `assets/music/Snowy.flac`
+    continuar_tocando()
+  }
+
+  function ativar_waterfall() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #00093a 0%, #0b0c10 100%)"
+    a_waterfall.className = "ativo"
+    personagem_waterfall.className = ""
+
+    audio_pagina.src = `assets/music/Waterfall.flac`
+    continuar_tocando()
+  }
+
+  function ativar_hotland() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #b15f00 0%, #0b0c10 100%)"
+    a_hotland.className = "ativo"
+    personagem_hotland.className = ""
+
+    audio_pagina.src = `assets/music/Another_Medium.flac`
+    continuar_tocando()
+  }
+
+  function ativar_newhome() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #937a0a 0%, #0b0c10 100%)"
+    a_newhome.className = "ativo"
+    personagem_newhome.className = ""
+
+    audio_pagina.src = `assets/music/Undertale.flac`
+    continuar_tocando()
+  }
+
+  function ativar_barrier() {
+    desativar_descricao()
+    desativar_todos_nav()
+    section_principal.style.background = "radial-gradient(circle, #4f4d4d 0%, #0b0c10 100%)"
+    a_barrier.className = "ativo"
+    personagem_barrier.className = ""
+
+    audio_pagina.src = `assets/music/Barrier.flac`
+    continuar_tocando()
+  }
+
+  function desativar_todos_personagem() {
+    personagem_Dummy.className = "personagem_desativo"
+    personagem_Froggit.className = "personagem_desativo"
+    personagem_Whimsun.className = "personagem_desativo"
+    personagem_Moldsmal.className = "personagem_desativo"
+    personagem_Napstablook.className = "personagem_desativo"
+    personagem_Vegetoid.className = "personagem_desativo"
+    personagem_Migosp.className = "personagem_desativo"
+    personagem_Loox.className = "personagem_desativo"
+    personagem_Toriel.className = "personagem_desativo"
+    personagem_Snowdrake.className = "personagem_desativo"
+    personagem_Chilldrake.className = "personagem_desativo"
+    personagem_IceCap.className = "personagem_desativo"
+    personagem_Doggo.className = "personagem_desativo"
+    personagem_LesserDog.className = "personagem_desativo"
+    personagem_Jerry.className = "personagem_desativo"
+    personagem_Dogamy.className = "personagem_desativo"
+    personagem_Dogaressa.className = "personagem_desativo"
+    personagem_Gyftrot.className = "personagem_desativo"
+    personagem_Glyde.className = "personagem_desativo"
+    personagem_GreaterDog.className = "personagem_desativo"
+    personagem_Papyrus.className = "personagem_desativo"
+    personagem_Aaron.className = "personagem_desativo"
+    personagem_Woshua.className = "personagem_desativo"
+    personagem_Shyren.className = "personagem_desativo"
+    personagem_Temmie.className = "personagem_desativo"
+    personagem_Moldbygg.className = "personagem_desativo"
+    personagem_MadDummy.className = "personagem_desativo"
+    personagem_Undyne.className = "personagem_desativo"
+    personagem_MonsterKid.className = "personagem_desativo"
+    personagem_Vulkin.className = "personagem_desativo"
+    personagem_Tsunderplane.className = "personagem_desativo"
+    personagem_Pyrope.className = "personagem_desativo"
+    personagem_RoyalGuards.className = "personagem_desativo"
+    personagem_Muffet.className = "personagem_desativo"
+    personagem_Alphys.className = "personagem_desativo"
+    personagem_Madjick.className = "personagem_desativo"
+    personagem_KnightKnight.className = "personagem_desativo"
+    personagem_FinalFroggit.className = "personagem_desativo"
+    personagem_Whimsalot.className = "personagem_desativo"
+    personagem_Astigmatism.className = "personagem_desativo"
+    personagem_Mettaton.className = "personagem_desativo"
+    personagem_Sans.className = "personagem_desativo"
+    personagem_AsgoreDreemurr.className = "personagem_desativo"
+    personagem_Flowey.className = "personagem_desativo"
+    personagem_OmegaFlowey.className = "personagem_desativo"
+    personagem_AsrielDreemurr.className = "personagem_desativo"
+    personagem_Chara.className = "personagem_desativo"
+  }
+
+  function desativar_catalogo() {
+    descricoes_personagens.className = ""
+    catalogo_personagens.className = "desativo"
+  }
+
+  function ativar_personagem(a, b) {
+    let personagem = document.getElementById(b)
+
+    desativar_catalogo()
+    desativar_todos_personagem()
+    audio_pagina.src = `${a}`
+    continuar_tocando()
+    personagem.className = ""
+  }
+</script>
+
 </html>

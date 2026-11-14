@@ -14,7 +14,7 @@
 </head>
 
 <body onload="listar()">
-    <!--header inicio-->
+  <!--header inicio-->
   <section id="ativador_header">
     <header id="header">
       <div style="width: 28rem;" class="container_principal">
@@ -23,10 +23,10 @@
         </a>
 
         <nav class="lista_texto">
-          <a href="#menu">Menu</a>
-          <a href="#historia">História</a>
+          <a href="index.html#menu">Menu</a>
+          <a href="index.html#historia">História</a>
+          <a href="index.html#discussoes">Discussões</a>
           <a href="personagens.html">Personagens</a>
-          <a href="#discussoes">Discussões</a>
         </nav>
       </div>
 
@@ -46,91 +46,90 @@
       </div>
     </header>
   </section>
-    <!--header fim-->
+  <!--header fim-->
 
-    <section class="section_login" id="login">
-        <div id="espaco_em_branco">
+  <section class="section_cadastro" id="cadastro">
+    <div id="espaco_em_branco"></div>
+
+    <div id="container_principal">
+      <div id="container_mensagem">
+        <div class="caixa_texto">
+          <div>Já possui Cadastro?<br>
+            <a href="login.html">Faça seu Login!</a>
+          </div>
         </div>
 
-        <div id="container_principal">
-            <div id="container_mensagem">
-                <div class="caixa_texto">
-                    <div>Não possui cadastro?<br>
-                        <a href="cadastro.html">Cadastre-se agora!</a>
-                    </div>
-                </div>
+        <img id="echo_flower" src="assets/imgs/echo_flower.svg" alt="">
+      </div>
 
-                <img id="echo_flower" src="assets/imgs/echo_flower.svg" alt="">
-            </div>
-
-            <div id="estatua">
-                <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
-            </div>
-
-            <div id="container_main">
-                <div id="main">
-                    <div>
-                        <div class="titulo_input">
-                            E-mail:
-                        </div>
-
-                        <input id="ipt_email" type="text">
-                    </div>
-
-                    <div>
-                        <div class="titulo_input">
-                            <label>Senha:</label>
-                            <a id="mostrar" onclick="mostrar_senha()">◉</a>
-                        </div>
-
-                        <input id="ipt_senha" type="password">
-                    </div>
-
-                    <div>
-                        <button onclick="entrar()">Entrar</button>
-                    </div>
-                </div>
-            </div>
+      <div id="estatua">
+        <div id="msg_validacoes">
+          <div id="msg"></div>
         </div>
-    </section>
 
-    <!--footer inicio-->
-    <footer>
+        <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
+      </div>
 
-    </footer>
-    <!--footer fim-->
+      <div id="container_main">
+        <div id="main">
+          <div>
+            <label class="titulo_input">
+              Nome:
+            </label>
 
-    <audio id="audio_pagina" loop muted>
-        <source src="assets/music/Fallen_Down.flac" type="audio/flac">
-    </audio>
+            <input oninput="verificar_nome()" id="ipt_nome" type="text">
+          </div>
+
+          <div>
+            <label class="titulo_input">
+              E-mail:
+            </label>
+
+            <input oninput="verificar_email()" id="ipt_email" type="text">
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              <label>Senha:</label>
+              <a id="mostrar" onclick="mostrar_senha()">◉</a>
+            </div>
+
+          <div>
+            <button onclick="logar()">Logar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--footer inicio-->
+  <footer>
+
+  </footer>
+  <!--footer fim-->
+
+  <audio id="audio_pagina" loop muted>
+    <source src="assets/music/Memory.flac" type="audio/flac">
+  </audio>
+
+  <canvas id="chuva"></canvas>
 </body>
 <script src="js/padroes.js"></script>
+<script src="js/chuva.js"></script>
 <script>
-    function chover() {
-        let chuva = document.createElement('div');
-        chuva.classList.add('chuva');
+    function mostrar_senha() {
+    let tipo_input = ipt_senha.type
 
-        chuva.style.left = Math.random() * 97 + 'vw';
-
-        let tempo_animacao = Math.random() * 1 + 0.5;
-        chuva.style.animationDuration = tempo_animacao + 's';
-
-        document.body.appendChild(chuva);
-
-        setTimeout(() => {
-            chuva.remove();
-        }, tempo_animacao * 1000);
+    if (tipo_input == 'password') {
+      mostrar.innerHTML = '◎'
+      ipt_senha.type = 'text'
+      ipt_confirmacao_senha.type = 'text'
+    } else {
+      mostrar.innerHTML = '◉'
+      ipt_senha.type = 'password'
+      ipt_confirmacao_senha.type = 'password'
     }
-
-    setInterval(chover, 50);
-
-    function mostrar_senha(){
-        let tipo_input = ipt_senha.type
-
-        alert('tipo_input')
-
-        mostrar.innerHTML = '◎'
-    }
+  }
 
     // Array para armazenar empresas cadastradas para validação de código de ativação 
     let listaEmpresasCadastradas = [];

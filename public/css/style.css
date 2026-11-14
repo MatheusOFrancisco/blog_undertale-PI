@@ -5,6 +5,25 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'mercy';
+    src: url('../assets/fonts/mercy/mercy.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes surgir_background {
+    from {
+        opacity: 0;
+        background-position: 0 400px;
+    }
+
+    to {
+        opacity: 1;
+        background-position: 0 0;
+    }
+}
+
 @keyframes surgir {
     from {
         opacity: 0;
@@ -14,6 +33,36 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(-5deg);
+    }
+
+    66% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes desaparecer {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
     }
 }
 
@@ -31,16 +80,36 @@ body {
 
     display: flex;
     flex-direction: column;
-
-    /* overflow-x: hidden; */
 }
 
-*{
+* {
     font-family: 'pixel_operator', sans-serif;
 }
 
-input{
+button {
+    font-family: 'mercy', sans-serif;
+    outline: #eb7a23 0.3rem solid;
+    border-radius: 1rem;
+    cursor: pointer;
+    color: #eb7a23;
+
+
+    background-color: transparent;
+
+    transform: all 0.3s;
+}
+
+button:active {
+    outline: #ffff00 0.3rem solid;
+    color: #ffff00;
+}
+
+input {
     font-family: sans-serif;
+}
+
+a{
+    cursor: pointer;
 }
 
 .caixa_texto {
@@ -55,16 +124,19 @@ input{
     font-weight: bold;
     font-size: 2rem;
 
-    div{
+    div {
         margin: 1rem;
     }
 
-    img{
+    img {
         margin: 1rem;
     }
 }
 
 #ativador_header {
+    display: flex;
+    flex-direction: column;
+
     position: fixed;
     top: 0;
     left: 0;
@@ -96,7 +168,7 @@ header {
     font-size: 1.5rem;
     color: #fffafa;
 
-    background-color: rgba(0, 0, 0, 0.43);
+    background-color: rgba(0, 0, 0, 0.63);
     backdrop-filter: blur(5px);
     border-radius: 40px;
 
@@ -112,12 +184,11 @@ header {
         color: #fffafa;
         text-decoration: none;
         cursor: pointer;
-        animation: 0.3s;
         transition: all 0.3s ease;
     }
 
     a:hover {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         text-decoration: underline;
     }
 
@@ -153,7 +224,8 @@ header.escondido {
     transform: translateY(-130%);
 }
 
-footer{
+footer {
+    z-index: 2;
     height: 30vh;
     width: 100%;
 

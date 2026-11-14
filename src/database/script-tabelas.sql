@@ -41,3 +41,10 @@ CONSTRAINT fkResultadoPersonagem FOREIGN KEY resultado_quiz(fk_personagem) REFER
 CONSTRAINT fkResultadoUsuario FOREIGN KEY resultado_quiz(pk_usuario) REFERENCES usuario(id_usuario),
 CONSTRAINT pkResultadoUsuario PRIMARY KEY (id_resultado, pk_usuario)
 );
+
+-- CRIAÇÃO DOS USUARIOS:
+
+CREATE USER 'usuario_blog_undertale'@'%' IDENTIFIED BY '80085Mat!';
+GRANT SELECT, INSERT ON papo_do_subsolo.* TO 'usuario_blog_undertale'@'%';
+FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'usuario_blog_undertale'@'%';

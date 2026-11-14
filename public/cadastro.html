@@ -23,10 +23,10 @@
         </a>
 
         <nav class="lista_texto">
-          <a href="#menu">Menu</a>
-          <a href="#historia">História</a>
+          <a href="index.html#menu">Menu</a>
+          <a href="index.html#historia">História</a>
+          <a href="index.html#discussoes">Discussões</a>
           <a href="personagens.html">Personagens</a>
-          <a href="#discussoes">Discussões</a>
         </nav>
       </div>
 
@@ -49,8 +49,7 @@
   <!--header fim-->
 
   <section class="section_cadastro" id="cadastro">
-    <div id="espaco_em_branco">
-    </div>
+    <div id="espaco_em_branco"></div>
 
     <div id="container_principal">
       <div id="container_mensagem">
@@ -64,25 +63,29 @@
       </div>
 
       <div id="estatua">
+        <div id="msg_validacoes">
+          <div id="msg"></div>
+        </div>
+
         <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
       </div>
 
       <div id="container_main">
         <div id="main">
           <div>
-            <div class="titulo_input">
-              Nickname:
-            </div>
+            <label class="titulo_input">
+              Nome:
+            </label>
 
-            <input id="ipt_nickname" type="text">
+            <input oninput="verificar_nome()" id="ipt_nome" type="text">
           </div>
 
           <div>
-            <div class="titulo_input">
+            <label class="titulo_input">
               E-mail:
-            </div>
+            </label>
 
-            <input id="ipt_email" type="text">
+            <input oninput="verificar_email()" id="ipt_email" type="text">
           </div>
 
           <div>
@@ -96,24 +99,26 @@
 
           <div class="verificar_senha" id="verificar_senha">
             <div id="coracoes">
-              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
-              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
-              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+              <div id="img_tamanho"><img class="coracao" src="assets/imgs/coracao_vazio.svg" alt=""></div>
+              <div id="img_tipos_letras"><img class="coracao" src="assets/imgs/coracao_vazio.svg" alt=""></div>
+              <div id="img_numero"><img class="coracao" src="assets/imgs/coracao_vazio.svg" alt=""></div>
+              <div id="img_caractere"><img class="coracao" src="assets/imgs/coracao_vazio.svg" alt=""></div>
             </div>
 
             <div id="textos_senha">
-              <label>Letras maiúsculas e minúsculas.</label>
-              <label>Um digito. (0 - 9)</label>
-              <label>Um caractere especial. (Ex: ".", "!", "_")</label>
+              <label class="vermelho" id="tamanho">Minimo 8 digitos</label>
+              <label class="vermelho" id="tipos_letras">Letras maiúsculas e minúsculas.</label>
+              <label class="vermelho" id="numero">Um numero. (0 a 9)</label>
+              <label class="vermelho" id="caractere">Um caractere especial.<br>(Ex: ".", "!", "_")</label>
             </div>
           </div>
 
           <div>
-            <div class="titulo_input">
+            <label class="titulo_input">
               Confirme Sua senha:
-            </div>
+            </label>
 
-            <input id="ipt_confirmacao_senha" type="password">
+            <input oninput="verificar_confirmacao()" id="ipt_confirmacao_senha" type="password">
           </div>
 
           <div>
@@ -131,155 +136,239 @@
   <!--footer fim-->
 
   <audio id="audio_pagina" loop muted>
-    <source src="assets/music/Fallen_Down.flac" type="audio/flac">
+    <source src="assets/music/Memory.flac" type="audio/flac">
   </audio>
+
+  <canvas id="chuva"></canvas>
 </body>
+
 <script src="js/padroes.js"></script>
+<script src="js/chuva.js"></script>
 <script>
-  function chover() {
-    let chuva = document.createElement('div');
-    chuva.classList.add('chuva');
-
-    chuva.style.left = Math.random() * 97 + 'vw';
-
-    let tempo_animacao = Math.random() * 1 + 0.5;
-    chuva.style.animationDuration = tempo_animacao + 's';
-
-    document.body.appendChild(chuva);
-
-    setTimeout(() => {
-      chuva.remove();
-    }, tempo_animacao * 1000);
-  }
-
-  setInterval(chover, 50);
-
   function mostrar_senha() {
     let tipo_input = ipt_senha.type
 
     if (tipo_input == 'password') {
       mostrar.innerHTML = '◎'
       ipt_senha.type = 'text'
+      ipt_confirmacao_senha.type = 'text'
     } else {
       mostrar.innerHTML = '◉'
       ipt_senha.type = 'password'
+      ipt_confirmacao_senha.type = 'password'
+    }
+  }
+
+  // VALIDAÇÔES DOS CAMPOS
+  email_valido = false
+  nome_valido = false
+  senha_valida = false
+  confirmacao_valida = false
+
+  function verificar_nome() {
+    let nome = ipt_nome.value
+
+    if (nome.length >= 5) {
+      msg_validacoes.innerHTML = `<div id="msg"></div>`
+      nome_valido = true
+    } else {
+      msg_validacoes.innerHTML = `<div id="msg">O nome deve ter pelo menos 5 caracteres.</div>`
+      nome_valido = false
+    }
+  }
+
+  function verificar_email() {
+    let email = ipt_email.value
+
+    if (email.includes('@') && email.includes('.')) {
+      msg_validacoes.innerHTML = `<div id="msg"></div>`
+      email_valido = true
+    } else {
+      msg_validacoes.innerHTML = `<div id="msg">O email deve conter "@" e ".".</div>`
+      email_valido = false
     }
   }
 
   function verificar_senha() {
     let senha = ipt_senha.value
+
+    let tem_tamanho = false
+    let tem_minuscula = false
+    let tem_maiuscula = false
+    let tem_numero = false
+    let tem_simbolo = false
+
+    if (senha.includes(' ')) {
+      senha_valida = false
+      msg_validacoes.innerHTML = `<div id="msg">A senha não pode conter espaço.</div>`
+    } else {
+      msg_validacoes.innerHTML = `<div id="msg"></div>`
+
+      let digitado = ''
+
+      for (let i = 0; i < senha.length; i++) {
+        digitado = senha[i]
+
+        if (digitado >= 'a' && digitado <= 'z') {
+          tem_minuscula = true
+        } else if (digitado >= 'A' && digitado <= 'Z') {
+          tem_maiuscula = true
+        } else if (digitado >= '0' && digitado <= '9') {
+          tem_numero = true
+        } else if (digitado) {
+          tem_simbolo = true
+        }
+
+        if (senha.length >= 8) {
+          tem_tamanho = true
+        }
+      }
+
+      let pontos = 0
+
+      if (tem_tamanho == true) {
+        tamanho.className = "verde"
+        img_tamanho.innerHTML = `<img class="coracao" src="assets/imgs/coracao_cheio.svg" alt="">`
+        pontos++
+      } else {
+        tamanho.className = "vermelho"
+        img_tamanho.innerHTML = `<img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">`
+      }
+
+      if (tem_minuscula == true && tem_maiuscula == true) {
+        tipos_letras.className = "verde"
+        img_tipos_letras.innerHTML = `<img class="coracao" src="assets/imgs/coracao_cheio.svg" alt="">`
+        pontos++
+      } else {
+        tipos_letras.className = "vermelho"
+        img_tipos_letras.innerHTML = `<img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">`
+      }
+
+      if (tem_numero == true) {
+        numero.className = "verde"
+        img_numero.innerHTML = `<img class="coracao" src="assets/imgs/coracao_cheio.svg" alt="">`
+        pontos++
+      } else {
+        numero.className = "vermelho"
+        img_numero.innerHTML = `<img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">`
+      }
+
+      if (tem_simbolo == true) {
+        caractere.className = "verde"
+        img_caractere.innerHTML = `<img class="coracao" src="assets/imgs/coracao_cheio.svg" alt="">`
+        pontos++
+      } else {
+        caractere.className = "vermelho"
+        img_caractere.innerHTML = `<img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">`
+      }
+
+      if (pontos == 4) {
+        senha_valida = true
+      } else {
+        senha_valida = false
+      }
+    }
   }
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  function verificar_confirmacao() {
+    let senha = ipt_senha.value
+    let confirmacao = ipt_confirmacao_senha.value
+
+    if (senha === confirmacao) {
+      msg_validacoes.innerHTML = `<div id="msg"></div>`
+      confirmacao_valida = true
+    } else {
+      msg_validacoes.innerHTML = `<div id="msg">Ambas as senhas devem ser iguais.</div>`
+      confirmacao_valida = false
+    }
+  }
+
+  // REALIZAR CADASTRO
+
+  // Array para armazenar emails cadastrados para evitar repetição 
+  let lista_emails_cadastrados = [];
 
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var nome = ipt_nome.value;
+    var email = ipt_email.value;
+    var senha = ipt_senha.value;
+    var confirmacaoSenha = ipt_confirmacao_senha.value;
 
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
+    // Verificando se há algum campo invalidado
+    if (senha_valida == false) {
+      msg_validacoes.innerHTML = '<div id="msg">A senha deve atender todos os requisitos.</div>';
+    } else if (nome_valido == false) {
+      msg_validacoes.innerHTML = '<div id="msg">O nome deve ter pelo menos 5 caracteres.</div>';
+    } else if (email_valido == false) {
+      msg_validacoes.innerHTML = '<div id="msg">O email deve conter "@" e ".".</div>';
+    } else if (confirmacao_valida == false) {
+      msg_validacoes.innerHTML = '<div id="msg">Ambas as senhas devem ser iguais.</div>';
     } else {
-      setInterval(sumirMensagem, 5000);
-    }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+      // Verificando se o email já está vinculado a outra conta
+      for (let i = 0; i < lista_emails_cadastrados.length; i++) {
+        if (lista_emails_cadastrados[i].email == email) {
+          msg_validacoes.innerHTML = '<div id="msg">Email já vinculado a outra conta!</div>';
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
+      }
 
-    return false;
+      // Enviando o valor da nova input
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nome,
+          emailServer: email,
+          senhaServer: senha
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            msg_validacoes.innerHTML = '<div id="msg">Cadastro realizado com sucesso! Redirecionando para tela de Login...</div>';
+
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+          } else {
+            throw msg_validacoes.innerHTML = '<div id="msg">Houve um erro ao tentar realizar o cadastro!</div>';
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+
+      return false;
+    }
   }
 
-  // Listando empresas cadastradas 
+  // Listando emails cadastrados 
   function listar() {
-    fetch("/empresas/listar", {
+    fetch("/emails/listar", {
       method: "GET",
     })
       .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
+        resposta.json().then((emails) => {
+          emails.forEach((email) => {
+            lista_emails_cadastrados.push(email);
 
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+            console.log("lista_emails_cadastrados")
+            console.log(lista_emails_cadastrados[0].email)
           });
         });
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
   }
 </script>
 

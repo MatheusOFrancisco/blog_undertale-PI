@@ -109,14 +109,13 @@
     }
 
     #subsolo {
-        height: fit-content;
+        height: 120vh;
         width: 100%;
 
         background-color: #311001;
 
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
 
         #transicao_folhagem {
@@ -129,36 +128,50 @@
             }
         }
 
-        #frisk {}
-
-        section {
-            img {
-                width: 100%;
-            }
+        .slide {
+            width: 80vw;
+            height: 60vh;
         }
 
-        #ruins {
-            
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            width: 320vw;
+
+            transform: rotate(90deg) translateY(-60vh);
+            transform-origin: top left;
         }
 
-        #snowdin {
-
+        .one {
+            background: #efdefe;
         }
 
-        #waterfall {
-
+        .two {
+            background: #a3f3d3;
         }
 
-        #hotland {
-
+        .three {
+            background: #0bbaa0;
         }
 
-        #new_home {
-
+        .four {
+            background: #00dfdf;
         }
 
-        #barrier {
+        .outer-wrapper {
+            width: 60vh;
+            height: 80vw;
+            transform: rotate(-90deg) translateX(-60vh);
+            transform-origin: top left;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
 
+        #container_gameplay{
+            background-color: red;
+
+            width: 80vw;
+            height: 60vh;
         }
     }
 }

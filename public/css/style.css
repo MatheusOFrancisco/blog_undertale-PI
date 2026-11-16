@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'monster';
+    src: url('../assets/fonts/monster_friend_fore/MonsterFriendFore.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @keyframes surgir_background {
     from {
         opacity: 0;
@@ -115,7 +122,7 @@ input {
     font-family: sans-serif;
 }
 
-a{
+a {
     cursor: pointer;
 }
 
@@ -233,8 +240,75 @@ header.escondido {
 
 footer {
     z-index: 2;
-    height: 30vh;
+    height: fit-content;
     width: 100%;
 
     background-color: #0b0c10;
+
+    #container_cima {
+        height: fit-content;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        border-bottom: #fffafa solid 0.2rem;
+
+        #logo_pagina {
+            margin: 1rem;
+            color: #fffafa;
+            font-family: 'monster';
+
+            img {
+                height: 1rem;
+            }
+        }
+
+        #navegador_footer {
+            margin: 1rem;
+
+            a {
+                color: #fffafa;
+                font-weight: bold;
+                font-size: 1.5rem;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #container_baixo {
+        height: 20vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+
+        .titulo {
+            text-align: center;
+            font-size: 2rem;
+            color: #fffafa;
+        }
+
+        .subtitulo {
+            font-size: 2rem;
+            color: #fffafa;
+
+            span {
+                color: red;
+                font-weight: bold;
+            }
+
+            a {
+                img {
+                    height: 1rem;
+                }
+            }
+        }
+    }
 }

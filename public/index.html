@@ -79,7 +79,7 @@
       </div>
 
       <div class="caixa_texto">
-        <div>Um dia, uma guerra se iniciou entre ambos.</div>
+        <div>Um dia, sem motivo aparente,<br>uma guerra se iniciou entre ambos.</div>
       </div>
 
       <div class="imagem_historia" id="selo">
@@ -105,20 +105,110 @@
         <img src="assets/imgs/folhagem_transicao_hq.svg">
       </div>
 
+      <div id="container_texto">
+        <div id="titulo">
+          Bem-vindo ao Subterrâneo!
+        </div>
+        <div id="subtitulo">
+          Clique na tela para navegar pelo mundo!
+          <br>
+          Use as teclas "a" ou "b" para andar.
+        </div>
+      </div>
+
       <div id="container_gameplay">
+        <div id="container_frisk">
+          <img src="assets/imgs/sprites/frisk_sprite_3.svg">
+        </div>
+
         <div class="outer-wrapper">
-          <div class="wrapper">
-            <div class="slide one"></div>
-            <div class="slide two"></div>
-            <div class="slide three"></div>
-            <div class="slide four"></div>
+          <div tabindex="0" class="wrapper">
+            <div class="slide one">
+              <div class="caixa_texto">
+                <div>Este é Frisk.<br>O protagonista do jogo.</div>
+              </div>
+
+              <div class="caixa_texto">
+                <div>
+                  Frisk é a criança humana, que cai no Subterrâneo após atravessar uma abertura no Monte Ebott.
+                  <br>
+                  <br>
+                  Suas atitudes e decisões são determinadas pelas escolhas do jogador. Apesar de toda a situação, Frisk
+                  demonstra durante o jogo grande <span style="font-weight: bolder; color: red;">DETERMINAÇÃO</span> em
+                  criar laços ou destruir aqueles que encontra em seu caminho.
+                </div>
+              </div>
+            </div>
+
+            <div class="slide two">
+              <div class="caixa_texto">
+                <div>Este é Floway.<br>O primeiro monstro que você encontra e o responsável por ensinar como as coisas
+                  nesse mundo funcionam.</div>
+              </div>
+
+              <img src="assets/imgs/flowey_simples.svg">
+            </div>
+
+            <div class="slide three">
+              <div id="caixa_batalha">
+
+                <div id="area_monstro">
+                  <div class="container_background"><img src="assets/imgs/grade_battle_esquerda.svg"></div>
+
+                  <div>
+                    <a onclick="mudar_msg('Este sempre será o monstro que está interagindo com você.')"
+                      id="monstro"><img src="assets/imgs/flowey.svg"></a>
+                    <div id="fala_monstro">
+                      <div id="fala_atual">Clique em que deseja saber mais!</div>
+                    </div>
+                  </div>
+
+                  <div class="container_background"><img src="assets/imgs/grade_battle_direita.svg"></div>
+                </div>
+
+                <div id="area_player">
+                  <div id="container_descricao">
+                    <a onclick="mudar_msg('Este sempre será o monstro que está interagindo com você')"><img
+                        src="assets/imgs/determinacao.svg"></a>
+                  </div>
+
+                  <div id="container_informacoes">
+                    <a onclick="mudar_msg(a)" id="nome">Frisk</a>
+                    <a onclick="mudar_msg(a)" id="love">LV 1</a>
+                    <a onclick="mudar_msg(a)" id="hp">
+                      <div>HP</div>
+                      <div id="quadrado_vida"></div>
+                      <div>20/20</div>
+                    </a>
+                  </div>
+
+                  <div id="container_acoes">
+                    <a onclick="mudar_msg(a)"><img src="">
+                      <div>FIGTH</div>
+                    </a>
+                    <a onclick="mudar_msg(a)"><img src="">
+                      <div>ACT</div>
+                    </a>
+                    <a onclick="mudar_msg(a)"><img src="">
+                      <div>ITEM</div>
+                    </a>
+                    <a onclick="mudar_msg(a)"><img src="">
+                      <div>MERCY</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="slide four">
+
+            </div>
+
           </div>
         </div>
       </div>
     </section>
   </section>
-
-
 
   <section class="section_quiz" id="quiz">
 
@@ -157,7 +247,58 @@
 <script src="js/padroes.js">
 </script>
 <script>
+  function mudar_msg(a) {
+    fala_atual.innerHTML = a
+  }
 
+  let tela_gameplay = document.querySelector('.outer-wrapper')
+
+  let imagem_ativa_1 = 2
+  let imagem_ativa_2 = 4
+
+  function mudar_imagem(a) {
+    container_frisk.innerHTML = a
+  }
+
+  tela_gameplay.addEventListener('keydown', function (evento) {
+
+    if (evento.key === 'a' || evento.keyCode === 37) {
+      tela_gameplay.scrollTop -= 30;
+
+      imagem_ativa_2 = 4
+
+      if (imagem_ativa_1 == 4) {
+        imagem_ativa_1 = 0
+
+        mudar_imagem(`<img src="assets/imgs/sprites/frisk_sprite_1.svg">`)
+      } else if (imagem_ativa_1 == 2) {
+        imagem_ativa_1++
+
+        mudar_imagem(`<img src="assets/imgs/sprites/frisk_sprite_2.svg">`)
+      } else {
+        imagem_ativa_1++
+      }
+
+    } else if (evento.key === 'd' || evento.keyCode === 39) {
+      tela_gameplay.scrollTop += 30;
+
+      imagem_ativa_1 = 2
+
+      if (imagem_ativa_2 == 4) {
+        imagem_ativa_2 = 0
+
+
+        mudar_imagem(`<img src="assets/imgs/sprites/frisk_sprite_4.svg">`)
+      } else if (imagem_ativa_2 == 2) {
+        imagem_ativa_2++
+
+        mudar_imagem(`<img src="assets/imgs/sprites/frisk_sprite_3.svg">`)
+      } else {
+        imagem_ativa_2++
+      }
+    }
+
+  });
 </script>
 
 </html>

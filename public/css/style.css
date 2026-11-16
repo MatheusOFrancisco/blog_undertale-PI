@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'mars';
+    src: url('../assets/fonts/mars_needs_cunnilingus/Mars_Needs_Cunnilingus.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @keyframes surgir_background {
     from {
         opacity: 0;

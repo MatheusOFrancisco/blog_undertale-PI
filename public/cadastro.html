@@ -299,7 +299,7 @@
   // REALIZAR CADASTRO
 
   // Array para armazenar emails cadastrados para evitar repetição 
-  let lista_emails_cadastrados = [];
+  // let lista_emails_cadastrados = [];
 
   function cadastrar() {
     // aguardar();
@@ -323,14 +323,14 @@
     } else {
 
       // Verificando se o email já está vinculado a outra conta
-      for (let i = 0; i < lista_emails_cadastrados.length; i++) {
-        if (lista_emails_cadastrados[i].email == email) {
-          msg_validacoes.innerHTML = '<div id="msg">Email já vinculado a outra conta!</div>';
-        }
-      }
+      // for (let i = 0; i < lista_emails_cadastrados.length; i++) {
+      //   if (lista_emails_cadastrados[i].email == email) {
+      //     msg_validacoes.innerHTML = '<div id="msg">Email já vinculado a outra conta!</div>';
+      //   }
+      // }
 
       // Enviando o valor da nova input
-      fetch("/usuarios/cadastrar", {
+      fetch("usuarios/cadastrar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

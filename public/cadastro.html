@@ -13,7 +13,7 @@
   </style>
 </head>
 
-<body onload="listar()">
+<body>
   <!--header inicio-->
   <section id="ativador_header">
     <header id="header">
@@ -143,7 +143,8 @@
 
     <div id="container_baixo">
       <div class="titulo">Em comemoração aos</div>
-      <div class="subtitulo"><span>10</span> anos de <a href="https://undertale.com/"><img src="assets/imgs/logo_undertale.svg" alt=""></a></div>
+      <div class="subtitulo"><span>10</span> anos de <a href="https://undertale.com/"><img
+            src="assets/imgs/logo_undertale.svg" alt=""></a></div>
     </div>
   </footer>
   <!--footer fim-->
@@ -181,24 +182,34 @@
   function verificar_nome() {
     let nome = ipt_nome.value
 
-    if (nome.length >= 5) {
-      msg_validacoes.innerHTML = `<div id="msg"></div>`
-      nome_valido = true
-    } else {
-      msg_validacoes.innerHTML = `<div id="msg">O nome deve ter pelo menos 5 caracteres.</div>`
+    if (nome.length > 20) {
+      msg_validacoes.innerHTML = `<div id="msg">O nome não pode conter mais do que 20 caracteres.</div>`
       nome_valido = false
+    } else {
+      if (nome.length >= 5) {
+        msg_validacoes.innerHTML = `<div id="msg"></div>`
+        nome_valido = true
+      } else {
+        msg_validacoes.innerHTML = `<div id="msg">O nome deve ter pelo menos 5 caracteres.</div>`
+        nome_valido = false
+      }
     }
   }
 
   function verificar_email() {
     let email = ipt_email.value
 
-    if (email.includes('@') && email.includes('.')) {
-      msg_validacoes.innerHTML = `<div id="msg"></div>`
-      email_valido = true
-    } else {
-      msg_validacoes.innerHTML = `<div id="msg">O email deve conter "@" e ".".</div>`
+    if (email.length > 50) {
+      msg_validacoes.innerHTML = `<div id="msg">O email não pode conter mais do que 50 caracteres.</div>`
       email_valido = false
+    } else {
+      if (email.includes('@') && email.includes('.')) {
+        msg_validacoes.innerHTML = `<div id="msg"></div>`
+        email_valido = true
+      } else {
+        msg_validacoes.innerHTML = `<div id="msg">O email deve conter "@" e ".".</div>`
+        email_valido = false
+      }
     }
   }
 
@@ -214,6 +225,9 @@
     if (senha.includes(' ')) {
       senha_valida = false
       msg_validacoes.innerHTML = `<div id="msg">A senha não pode conter espaço.</div>`
+    } else if (senha.length > 20) {
+      senha_valida = false
+      msg_validacoes.innerHTML = `<div id="msg">A senha não pode conter mais do que 20 caracteres.</div>`
     } else {
       msg_validacoes.innerHTML = `<div id="msg"></div>`
 
@@ -298,9 +312,6 @@
 
   // REALIZAR CADASTRO
 
-  // Array para armazenar emails cadastrados para evitar repetição 
-  // let lista_emails_cadastrados = [];
-
   function cadastrar() {
     // aguardar();
 
@@ -313,21 +324,14 @@
 
     // Verificando se há algum campo invalidado
     if (senha_valida == false) {
-      msg_validacoes.innerHTML = '<div id="msg">A senha deve atender todos os requisitos.</div>';
+      msg_validacoes.innerHTML = '<div id="msg">A senha digitada é inválida.</div>';
     } else if (nome_valido == false) {
-      msg_validacoes.innerHTML = '<div id="msg">O nome deve ter pelo menos 5 caracteres.</div>';
+      msg_validacoes.innerHTML = '<div id="msg">O nome digitado é inválido.</div>';
     } else if (email_valido == false) {
-      msg_validacoes.innerHTML = '<div id="msg">O email deve conter "@" e ".".</div>';
+      msg_validacoes.innerHTML = '<div id="msg">O e-mail digitado é inválido.</div>';
     } else if (confirmacao_valida == false) {
-      msg_validacoes.innerHTML = '<div id="msg">Ambas as senhas devem ser iguais.</div>';
+      msg_validacoes.innerHTML = '<div id="msg">Senhas não coincidem.</div>';
     } else {
-
-      // Verificando se o email já está vinculado a outra conta
-      // for (let i = 0; i < lista_emails_cadastrados.length; i++) {
-      //   if (lista_emails_cadastrados[i].email == email) {
-      //     msg_validacoes.innerHTML = '<div id="msg">Email já vinculado a outra conta!</div>';
-      //   }
-      // }
 
       // Enviando o valor da nova input
       fetch("usuarios/cadastrar", {
@@ -362,26 +366,6 @@
 
       return false;
     }
-  }
-
-  // Listando emails cadastrados 
-  function listar() {
-    fetch("/emails/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((emails) => {
-          emails.forEach((email) => {
-            lista_emails_cadastrados.push(email);
-
-            console.log("lista_emails_cadastrados")
-            console.log(lista_emails_cadastrados[0].email)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
   }
 </script>
 

@@ -4,22 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papo do Subsolo - Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Papo do Subsolo - Fórum</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/forum.css">
     <link rel="icon" type="image/svg" href="../assets/imgs/determinacao.svg">
 </head>
 
-<body onload="validarSessao()">
-    <header>
+<body onload="validarSessao(), verificar_resultado()">
+    <section id="barra_lateral">
+        <div id="cima">
+            <nav>
+                <a id="a_logo" onclick="trocar_alma()">
+                    <div id="logo_container"><img id="logo" src="../assets/imgs/determinacao.svg" alt=""></div>
+                </a>
+            </nav>
+        </div>
 
-    </header>
+        <div id="meio">
+            <nav>
+                <a class="desativo" href="home.html">
+                    <img src="../assets/imgs/icon_home.svg" alt="">
+                    <label>Home</label>
+                </a>
+                <a class="desativo" href="quiz.html">
+                    <img src="../assets/imgs/icon_quiz.svg" alt="">
+                    <label>Quiz</label>
+                </a>
+                <a class="desativo" href="dashboard.html">
+                    <img src="../assets/imgs/icon_dashboard.svg" alt="">
+                    <label>Dash</label>
+                </a>
+                <a class="ativo" href="forum.html">
+                    <img src="../assets/imgs/icon_forum.svg" alt="">
+                    <label>Fórum</label>
+                </a>
+            </nav>
+        </div>
+
+        <div id="baixo">
+            <nav>
+                <a onclick="finalizar_sessao()">
+                    <img id="logout" src="../assets/imgs/icon_logout.svg" alt="">
+                    <label>Logout</label>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <section id="main">
+        <main>
+            <div id="locate">
+                <label>PAPO DO SUBSOLO / FÓRUM</label>
+            </div>
+        </main>
+    </section>
+
+
 </body>
 
 <script src="../js/sessao.js"></script>
-<script src="../js/padroes.js"></script>
+<script src="../js/padroes_usuarios.js"></script>
 <script>
-
 </script>
 
 </html>

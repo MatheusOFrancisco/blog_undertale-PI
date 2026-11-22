@@ -4,22 +4,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papo do Subsolo - Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Papo do Subsolo - Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="icon" type="image/svg" href="../assets/imgs/determinacao.svg">
 </head>
 
-<body onload="validarSessao()">
-    <header>
+<body onload="validarSessao(), verificar_resultado()">
+    <section id="barra_lateral">
+        <div id="cima">
+            <nav>
+                <a id="a_logo" onclick="trocar_alma()">
+                    <div id="logo_container"><img id="logo" src="../assets/imgs/determinacao.svg" alt=""></div>
+                </a>
+            </nav>
+        </div>
 
-    </header>
+        <div id="meio">
+            <nav>
+                <a class="ativo" href="home.html">
+                    <img src="../assets/imgs/icon_home.svg" alt="">
+                    <label>Home</label>
+                </a>
+                <a class="desativo" href="quiz.html">
+                    <img src="../assets/imgs/icon_quiz.svg" alt="">
+                    <label>Quiz</label>
+                </a>
+                <a class="desativo" href="dashboard.html">
+                    <img src="../assets/imgs/icon_dashboard.svg" alt="">
+                    <label>Dash</label>
+                </a>
+                <a class="desativo" href="forum.html">
+                    <img src="../assets/imgs/icon_forum.svg" alt="">
+                    <label>Fórum</label>
+                </a>
+            </nav>
+        </div>
+
+        <div id="baixo">
+            <nav>
+                <a onclick="finalizar_sessao()">
+                    <img id="logout" src="../assets/imgs/icon_logout.svg" alt="">
+                    <label>Logout</label>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <section id="main">
+        <main>
+            <div id="locate">
+                <label>PAPO DO SUBSOLO / HOME</label>
+            </div>
+
+            <div id="boas_vindas">
+                <div id="titulo">
+                    <label>Olá, <span id="nome_usuario"></span>!</label>
+                </div>
+
+                <div id="subtitulo">
+                    <label>Sua próxima descoberta está esperando por você.</label>
+                </div>
+            </div>
+
+            <div id="anuncio_principal">
+                <div class="cima">
+                    <div class="titulo">
+                        <label for="">Ainda não realizou o Quiz?</label>
+                    </div>
+
+                    <div class="tag">
+                        <label for="">atenção!</label>
+                    </div>
+                </div>
+
+                <div class="descricao">
+                    <label for="">Realize um Quiz de 30 perguntas e descruba qual tipo de alma mais combina com
+                        você!</label>
+                </div>
+
+                <div class="container_button">
+                    <a href="quiz.html">
+                        <div>Descobrir mais →</div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="anuncios">
+                <div class="titulo">
+                    <label for="">EXPLORE O SUBSOLO</label>
+                </div>
+
+                <div class="container_anuncios">
+                    <a href="quiz.html" class="anuncio">
+                        <div class="img">
+                            <img src="../assets/imgs/icon_quiz.svg" alt="">
+                        </div>
+
+                        <div class="titulo">
+                            <label for="">Quiz</label>
+                        </div>
+
+                        <div class="subtitulo">
+                            <label for="">Descubra sua alma!</label>
+                        </div>
+                    </a>
+
+                    <a href="dashboard.html" class="anuncio">
+                        <div class="img">
+                            <img src="../assets/imgs/icon_dashboard.svg" alt="">
+                        </div>
+
+                        <div class="titulo">
+                            <label for="">Dashboard</label>
+                        </div>
+
+                        <div class="subtitulo">
+                            <label for="">Acompanhe sua jornada!</label>
+                        </div>
+                    </a>
+
+                    <a href="forum.html" class="anuncio">
+                        <div class="img">
+                            <img src="../assets/imgs/icon_forum.svg" alt="">
+                        </div>
+
+                        <div class="titulo">
+                            <label for="">Fórum</label>
+                        </div>
+
+                        <div class="subtitulo">
+                            <label for="">Discuta suas ideias!</label>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="comentario">
+                <div>
+                    <div>
+                        <div>
+
+                        </div>
+
+                        <div>
+
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+
+                        </div>
+
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                </div>
+            </div>
+        </main>
+    </section>
+
+
 </body>
 
 <script src="../js/sessao.js"></script>
-<script src="../js/padroes.js"></script>
+<script src="../js/padroes_usuarios.js"></script>
 <script>
-
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO
 </script>
 
 </html>

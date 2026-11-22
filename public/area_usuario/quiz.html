@@ -4,22 +4,912 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papo do Subsolo - Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
+    <title>Papo do Subsolo - Quiz</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
     <link rel="icon" type="image/svg" href="../assets/imgs/determinacao.svg">
 </head>
 
-<body onload="validarSessao()">
-    <header>
+<body onload="validarSessao(), verificar_resultado()">
+    <section id="barra_lateral">
+        <div id="cima">
+            <nav>
+                <a id="a_logo" onclick="trocar_alma()">
+                    <div id="logo_container"><img id="logo" src="../assets/imgs/determinacao.svg" alt=""></div>
+                </a>
+            </nav>
+        </div>
 
-    </header>
+        <div id="meio">
+            <nav>
+                <a class="desativo" href="home.html">
+                    <img src="../assets/imgs/icon_home.svg" alt="">
+                    <label>Home</label>
+                </a>
+                <a class="ativo" href="quiz.html">
+                    <img src="../assets/imgs/icon_quiz.svg" alt="">
+                    <label>Quiz</label>
+                </a>
+                <a class="desativo" href="dashboard.html">
+                    <img src="../assets/imgs/icon_dashboard.svg" alt="">
+                    <label>Dash</label>
+                </a>
+                <a class="desativo" href="forum.html">
+                    <img src="../assets/imgs/icon_forum.svg" alt="">
+                    <label>Fórum</label>
+                </a>
+            </nav>
+        </div>
+
+        <div id="baixo">
+            <nav>
+                <a onclick="finalizar_sessao()">
+                    <img id="logout" src="../assets/imgs/icon_logout.svg" alt="">
+                    <label>Logout</label>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <section id="main">
+        <main>
+            <div id="locate">
+                <label>PAPO DO SUBSOLO / QUIZ</label>
+            </div>
+
+            <div id="container_principal">
+                <div id="home_quiz">
+                    <div class="tag">
+                        <label>UMA NOVA EXPERIÊNCIA SOBRE VOCÊ</label>
+                    </div>
+
+                    <div class="titulo">
+                        <label>Qual alma habita em você?</label>
+                    </div>
+
+                    <div class="descricao">
+                        <label>Cada pessoa carrega algo que a torna única. Suas escolhas, seus valores e a maneira como
+                            enxerga o mundo dizem mais sobre você do que imagina.</label>
+                    </div>
+
+                    <div class="subtitulo">
+                        <label>Descubra qual das sete almas representa sua essência.</label>
+                    </div>
+
+                    <div class="container_coracao">
+                        <img src="../assets/imgs/determinacao.svg" alt="">
+                    </div>
+
+                    <div class="container_frase">
+                        <label>SUA JORNADA COMEÇA AQUI</label>
+                    </div>
+
+                    <div class="container_button">
+                        <a onclick="comecar()"><label>Começar teste</label></a>
+                    </div>
+
+                    <div class="container_referencia">
+                        <label>Um pequeno teste de personalidade inspirado em Undertale.</label>
+                    </div>
+                </div>
+
+                <div class="desativo" id="container_perguntas">
+                    <div class="container_progresso">
+                        <a class="container_button" onclick="voltar_home()">
+                            <label>Ínicio</label>
+                        </a>
+
+                        <a class="container_button" onclick="voltar_pergunta()">
+                            <label>Voltar</label>
+                        </a>
+
+                        <div id="barra_progresso">
+                            <div class="progresso_ind" id="p1"></div>
+                            <div class="progresso_ind" id="p2"></div>
+                            <div class="progresso_ind" id="p3"></div>
+                            <div class="progresso_ind" id="p4"></div>
+                            <div class="progresso_ind" id="p5"></div>
+                            <div class="progresso_ind" id="p6"></div>
+                            <div class="progresso_ind" id="p7"></div>
+                            <div class="progresso_ind" id="p8"></div>
+                            <div class="progresso_ind" id="p9"></div>
+                            <div class="progresso_ind" id="p10"></div>
+                            <div class="progresso_ind" id="p11"></div>
+                            <div class="progresso_ind" id="p12"></div>
+                            <div class="progresso_ind" id="p13"></div>
+                            <div class="progresso_ind" id="p14"></div>
+                            <div class="progresso_ind" id="p15"></div>
+                            <div class="progresso_ind" id="p16"></div>
+                            <div class="progresso_ind" id="p17"></div>
+                            <div class="progresso_ind" id="p18"></div>
+                            <div class="progresso_ind" id="p19"></div>
+                            <div class="progresso_ind" id="p20"></div>
+                            <div class="progresso_ind" id="p21"></div>
+                            <div class="progresso_ind" id="p22"></div>
+                            <div class="progresso_ind" id="p23"></div>
+                            <div class="progresso_ind" id="p24"></div>
+                            <div class="progresso_ind" id="p25"></div>
+                            <div class="progresso_ind" id="p26"></div>
+                            <div class="progresso_ind" id="p27"></div>
+                            <div class="progresso_ind" id="p28"></div>
+                            <div class="progresso_ind" id="p29"></div>
+                            <div class="progresso_ind" id="p30"></div>
+                        </div>
+                    </div>
+
+                    <div class="container_contexto">
+                        <div class="container_pergunta">
+                            <label id="pergunta"></label>
+                        </div>
+
+                        <div class="container_tabela">
+                            <div class="tabela">
+                                <div class="quadrado"><a id="n1" onclick="voltar_fase(a = 1)">1</a></div>
+                                <div class="quadrado"><a id="n2" onclick="voltar_fase(a = 2)">2</a></div>
+                                <div class="quadrado"><a id="n3" onclick="voltar_fase(a = 3)">3</a></div>
+                                <div class="quadrado"><a id="n4" onclick="voltar_fase(a = 4)">4</a></div>
+                                <div class="quadrado"><a id="n5" onclick="voltar_fase(a = 5)">5</a></div>
+                                <div class="quadrado"><a id="n6" onclick="voltar_fase(a = 6)">6</a></div>
+                                <div class="quadrado"><a id="n7" onclick="voltar_fase(a = 7)">7</a></div>
+                                <div class="quadrado"><a id="n8" onclick="voltar_fase(a = 8)">8</a></div>
+                                <div class="quadrado"><a id="n9" onclick="voltar_fase(a = 9)">9</a></div>
+                                <div class="quadrado"><a id="n10" onclick="voltar_fase(a = 10)">10</a></div>
+                                <div class="quadrado"><a id="n11" onclick="voltar_fase(a = 11)">11</a></div>
+                                <div class="quadrado"><a id="n12" onclick="voltar_fase(a = 12)">12</a></div>
+                                <div class="quadrado"><a id="n13" onclick="voltar_fase(a = 13)">13</a></div>
+                                <div class="quadrado"><a id="n14" onclick="voltar_fase(a = 14)">14</a></div>
+                                <div class="quadrado"><a id="n15" onclick="voltar_fase(a = 15)">15</a></div>
+                                <div class="quadrado"><a id="n16" onclick="voltar_fase(a = 16)">16</a></div>
+                                <div class="quadrado"><a id="n17" onclick="voltar_fase(a = 17)">17</a></div>
+                                <div class="quadrado"><a id="n18" onclick="voltar_fase(a = 18)">18</a></div>
+                                <div class="quadrado"><a id="n19" onclick="voltar_fase(a = 19)">19</a></div>
+                                <div class="quadrado"><a id="n20" onclick="voltar_fase(a = 20)">20</a></div>
+                                <div class="quadrado"><a id="n21" onclick="voltar_fase(a = 21)">21</a></div>
+                                <div class="quadrado"><a id="n22" onclick="voltar_fase(a = 22)">22</a></div>
+                                <div class="quadrado"><a id="n23" onclick="voltar_fase(a = 23)">23</a></div>
+                                <div class="quadrado"><a id="n24" onclick="voltar_fase(a = 24)">24</a></div>
+                                <div class="quadrado"><a id="n25" onclick="voltar_fase(a = 25)">25</a></div>
+                                <div class="quadrado"><a id="n26" onclick="voltar_fase(a = 26)">26</a></div>
+                                <div class="quadrado"><a id="n27" onclick="voltar_fase(a = 27)">27</a></div>
+                                <div class="quadrado"><a id="n28" onclick="voltar_fase(a = 28)">28</a></div>
+                                <div class="quadrado"><a id="n29" onclick="voltar_fase(a = 29)">29</a></div>
+                                <div class="quadrado"><a id="n30" onclick="voltar_fase(a = 30)">30</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="container_respostas">
+                        <div><a id="resposta1" onclick="escolher_resposta(v = 1)">
+                                <span>1.</span>
+                            </a></div>
+
+                        <div><a id="resposta2" onclick="escolher_resposta(v = 2)">
+                                <span>2.</span>
+                            </a></div>
+
+                        <div><a id="resposta3" onclick="escolher_resposta(v = 3)">
+                                <span>3.</span>
+                            </a></div>
+
+                        <div><a id="resposta4" onclick="escolher_resposta(v = 4)">
+                                <span>4.</span>
+                            </a></div>
+
+                        <div><a id="resposta5" onclick="escolher_resposta(v = 5)">
+                                <span>5.</span>
+                            </a></div>
+
+                        <div><a id="resposta6" onclick="escolher_resposta(v = 6)">
+                                <span>6.</span>
+                            </a></div>
+
+                        <div><a id="resposta7" onclick="escolher_resposta(v = 7)">
+                                <span>7.</span>
+                            </a></div>
+                    </div>
+                </div>
+
+                <div class="desativo" id="finalizacao_quiz">
+                    <div class="tag">
+                        <label>SUA JORNADA FOI CONCLUÍDA</label>
+                    </div>
+
+                    <div class="titulo">
+                        <label>Sua alma foi revelada!</label>
+                    </div>
+
+                    <div id="img_alma">
+                        <img src="" alt="">
+                    </div>
+
+                    <div class="nome_alma">
+                        <label id="nome_alma"></label>
+                    </div>
+
+                    <div class="subtitulo">
+                        <label>A alma que representa sua essência</label>
+                    </div>
+
+                    <div class="descricao">
+                        <div><label id="descricao"></label></div>
+                    </div>
+
+                    <div class="container_button">
+                        <a onclick="voltar_home()" class="button_voltar">
+                            <label>Refazer teste</label>
+                        </a>
+
+                        <a href="dashboard.html" class="button_sair">
+                            <label>Ver Dashboard</label>
+                        </a>
+                    </div>
+
+                    <div class="referencia">
+                        <label>Um resultado, sete possibilidades.</label>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+
 </body>
 
 <script src="../js/sessao.js"></script>
-<script src="../js/padroes.js"></script>
+<script src="../js/padroes_usuarios.js"></script>
 <script>
+    const dicionario_perguntas = {
+        pergunta1: {
+            pergunta: "1. Você chega a um lugar onde não conhece quase ninguém. Como costuma agir?",
+            DET: "Escolho algum objetivo ou atividade para me ocupar.",
+            BRA: "Procuro alguém que pareça interessante e começo uma conversa.",
+            JUS: "Procuro entender como as pessoas daquele lugar interagem.",
+            PAC: "Observo o ambiente até encontrar algo que me deixe confortável.",
+            BON: "Tento me aproximar de alguém que também esteja sozinho.",
+            PER: "Vou experimentando diferentes maneiras de me enturmar.",
+            INT: "Fico à vontade para agir do meu próprio jeito."
+        },
 
+        pergunta2: {
+            pergunta: "2. Quando um plano que você organizou dá errado, o que geralmente faz?",
+            DET: "Reorganizo tudo e sigo em frente.",
+            BRA: "Improviso alguma coisa e vejo no que vai dar.",
+            JUS: "Tento entender onde as coisas saíram do esperado.",
+            PAC: "Dou um tempo para pensar antes de tomar outra decisão.",
+            BON: "Procuro alguém para conversar e pensar em alternativas.",
+            PER: "Procuro outra maneira de alcançar o que queria.",
+            INT: "Não abandono aquilo em que acredito só porque ficou complicado."
+        },
+
+        pergunta3: {
+            pergunta: "3. Um amigo está passando por um dia difícil, mas não fala sobre isso. O que você faria?",
+            DET: "Continuaria acompanhando a situação até ter certeza de que está tudo bem.",
+            BRA: "Tentaria fazê-lo rir para aliviar um pouco o clima.",
+            JUS: "Tentaria entender o que aconteceu antes de tirar conclusões.",
+            PAC: "Daria espaço, mas deixaria claro que estou disponível.",
+            BON: "Procuraria alguma maneira de ajudá-lo sem precisar pedir.",
+            PER: "Tentaria distraí-lo com alguma atividade diferente.",
+            INT: "Perguntaria diretamente se aconteceu alguma coisa."
+        },
+
+        pergunta4: {
+            pergunta: "4. Se pudesse passar um dia inteiro explorando o Subsolo, o que mais chamaria sua atenção?",
+            DET: "Descobrir lugares que ninguém parece conhecer.",
+            BRA: "Experimentar coisas que nunca tive oportunidade de fazer.",
+            JUS: "Investigar os mistérios e acontecimentos daquele mundo.",
+            PAC: "Conhecer os pequenos detalhes e costumes de cada região.",
+            BON: "Conhecer os moradores e ouvir suas histórias.",
+            PER: "Encontrar desafios e atividades pelo caminho.",
+            INT: "Descobrir como aquele lugar funciona e como tudo se conecta."
+        },
+
+        pergunta5: {
+            pergunta: "5. Qual dessas situações mais costuma tirar você do sério?",
+            DET: "Sentir que estou parado enquanto poderia estar fazendo algo.",
+            BRA: "Quando alguém tenta me impedir de fazer algo que considero importante.",
+            JUS: "Ver alguém sendo tratado de maneira injusta.",
+            PAC: "Ter que lidar com mudanças repentinas sem tempo para me adaptar.",
+            BON: "Quando alguém desconta suas frustrações em quem não tem culpa.",
+            PER: "Perceber que estou cometendo os mesmos erros repetidamente.",
+            INT: "Pessoas que não respeitam o espaço dos outros."
+        },
+
+        pergunta6: {
+            pergunta: "6. Quando você começa a aprender algo novo, qual é sua tendência?",
+            DET: "Estabeleço pequenas metas para acompanhar meu progresso.",
+            BRA: "Quero testar logo na prática, mesmo sem dominar tudo.",
+            JUS: "Tento compreender por que certas técnicas funcionam melhor que outras.",
+            PAC: "Aprendo no meu ritmo, sem me preocupar tanto com os outros.",
+            BON: "Gosto de compartilhar o aprendizado e trocar conhecimentos.",
+            PER: "Procuro diferentes métodos até encontrar um que funcione.",
+            INT: "Prefiro entender os fundamentos antes de avançar."
+        },
+
+        pergunta7: {
+            pergunta: "7. Imagine que você encontrou um objeto perdido no corredor de um castelo. O que faria?",
+            DET: "Não descansaria até encontrar seu proprietário.",
+            BRA: "Sairia perguntando diretamente às pessoas se o objeto pertence a elas.",
+            JUS: "Procuraria descobrir quem é o verdadeiro dono.",
+            PAC: "Tentaria descobrir de onde ele veio observando seus detalhes.",
+            BON: "Perguntaria às pessoas próximas se alguém está procurando algo.",
+            PER: "Procuraria ajuda de alguém responsável pelo local.",
+            INT: "Deixaria o objeto em um local seguro enquanto procuro informações."
+        },
+
+        pergunta8: {
+            pergunta: "8. Em um grupo de amigos, qual papel você acaba assumindo com mais frequência?",
+            DET: "Quem organiza os planos e mantém as coisas funcionando.",
+            BRA: "Quem toma a iniciativa quando ninguém sabe o que fazer.",
+            JUS: "Quem observa e percebe quando algo não está certo.",
+            PAC: "Quem prefere ouvir todo mundo antes de opinar.",
+            BON: "Quem tenta manter todo mundo unido.",
+            PER: "A pessoa que apresenta ideias diferentes.",
+            INT: "Quem fala o que realmente pensa, mesmo quando discorda."
+        },
+
+        pergunta9: {
+            pergunta: "9. Você recebe uma notícia inesperada que pode mudar bastante seus planos. Qual seria sua primeira reação?",
+            DET: "Decidir rapidamente o que precisa ser feito primeiro.",
+            BRA: "Procurar uma oportunidade escondida naquela mudança.",
+            JUS: "Analisar se a mudança é realmente a melhor opção.",
+            PAC: "Tentar compreender todas as consequências antes de agir.",
+            BON: "Pensar em como essa mudança afeta as pessoas próximas.",
+            PER: "Pensar em como adaptar minha rotina à nova situação.",
+            INT: "Reavaliar o que realmente quero fazer daqui para frente."
+        },
+
+        pergunta10: {
+            pergunta: "10. Se você pudesse escolher uma atividade para fazer em uma tarde livre, qual seria?",
+            DET: "Colocar em prática um projeto que venho planejando.",
+            BRA: "Explorar um lugar novo sem saber exatamente o que vou encontrar.",
+            JUS: "Resolver um desafio ou mistério por pura curiosidade.",
+            PAC: "Fazer alguma atividade tranquila, sem pressa.",
+            BON: "Passar um tempo conversando com pessoas importantes para mim.",
+            PER: "Experimentar um hobby que sempre tive curiosidade de conhecer.",
+            INT: "Trabalhar em algo criativo que represente minhas ideias."
+        },
+
+        pergunta11: {
+            pergunta: "11. Durante uma conversa, você percebe que alguém está sendo constantemente interrompido. O que faria?",
+            DET: "Tentaria encontrar uma maneira de reorganizar a conversa.",
+            BRA: "Interromperia educadamente para apontar o que está acontecendo.",
+            JUS: "Perguntaria por que algumas opiniões estão recebendo mais espaço que outras.",
+            PAC: "Esperaria uma oportunidade para que ela pudesse concluir seu raciocínio.",
+            BON: "Tentaria trazer a pessoa de volta para a conversa.",
+            PER: "Conversaria com a pessoa depois para saber o que ela queria dizer.",
+            INT: "Deixaria claro que todas as pessoas deveriam ter oportunidade de falar."
+        },
+
+        pergunta12: {
+            pergunta: "12. Qual dessas características você mais admira em outras pessoas?",
+            DET: "A habilidade de transformar ideias em realizações.",
+            BRA: "A facilidade de se posicionar diante de situações difíceis.",
+            JUS: "A capacidade de reconhecer diferentes pontos de vista.",
+            PAC: "A capacidade de manter a calma em situações complicadas.",
+            BON: "A capacidade de fazer os outros se sentirem acolhidos.",
+            PER: "A disposição de continuar mesmo quando algo demora a dar certo.",
+            INT: "A coerência entre aquilo que dizem e aquilo que fazem."
+        },
+
+        pergunta13: {
+            pergunta: "13. Você e seus amigos estão tentando decidir o que fazer, mas ninguém chega a um acordo. O que faria?",
+            DET: "Escolheria uma direção e ajudaria o grupo a colocá-la em prática.",
+            BRA: "Sugeriria experimentar uma das opções em vez de continuar discutindo.",
+            JUS: "Organizaria os pontos positivos e negativos de cada ideia.",
+            PAC: "Deixaria a conversa acontecer até alguém encontrar uma solução.",
+            BON: "Tentaria encontrar uma alternativa que atendesse a todos.",
+            PER: "Procuraria uma opção diferente das que já foram apresentadas.",
+            INT: "Definiria minha opinião sem simplesmente concordar com a maioria."
+        },
+
+        pergunta14: {
+            pergunta: "14. Imagine que você precisa atravessar uma região desconhecida do Subsolo. O que levaria em consideração primeiro?",
+            DET: "Ter tudo organizado para não perder tempo.",
+            BRA: "Estar disposto a enfrentar o que aparecer.",
+            JUS: "Saber quais perigos podem existir pelo caminho.",
+            PAC: "Conhecer o lugar antes de decidir por onde seguir.",
+            BON: "Verificar se todos que estão comigo estão preparados.",
+            PER: "Ter um caminho alternativo caso algo não saia como esperado.",
+            INT: "Ter certeza de que minhas escolhas durante o percurso fazem sentido."
+        },
+
+        pergunta15: {
+            pergunta: "15. Quando alguém discorda de uma opinião sua, como costuma reagir?",
+            DET: "Continuo defendendo meu ponto de vista quando considero o assunto importante.",
+            BRA: "Gosto de discutir ideias diferentes, mesmo sem chegar a um consenso.",
+            JUS: "Procuro exemplos que ajudem a esclarecer a discussão.",
+            PAC: "Tento entender quais experiências levaram a pessoa a pensar assim.",
+            BON: "Tento evitar que a conversa se transforme em uma discussão desnecessária.",
+            PER: "Não tenho problema em mudar de opinião quando encontro bons argumentos.",
+            INT: "Defendo meus argumentos quando acredito que fazem sentido."
+        },
+
+        pergunta16: {
+            pergunta: "16. Você recebe uma tarefa difícil, mas ninguém está cobrando que ela seja concluída rapidamente. Como lidaria com isso?",
+            DET: "Dividiria a tarefa em pequenas etapas.",
+            BRA: "Começaria logo, mesmo sem ter certeza de como tudo vai terminar.",
+            JUS: "Tentaria encontrar a maneira mais eficiente de realizá-la.",
+            PAC: "Faria tudo com calma, prestando atenção aos detalhes.",
+            BON: "Pensaria em quem poderia se beneficiar daquele trabalho.",
+            PER: "Aproveitaria a liberdade para experimentar diferentes abordagens.",
+            INT: "Procuraria fazer algo de que realmente pudesse me orgulhar."
+        },
+
+        pergunta17: {
+            pergunta: "17. Se pudesse conversar com um personagem de Undertale por uma hora, qual assunto escolheria?",
+            DET: "Ouvir Papyrus falar sobre seus planos e ambições.",
+            BRA: "Conversar com Undyne sobre suas experiências e desafios.",
+            JUS: "Conhecer as opiniões de Mettaton sobre fama e reconhecimento.",
+            PAC: "Conversar com Toriel sobre suas experiências e histórias.",
+            BON: "Conversar com Asgore ou Asriel sobre família e relações pessoais.",
+            PER: "Perguntar a Alphys sobre suas pesquisas e descobertas.",
+            INT: "Perguntar a Sans sobre seus pensamentos e observações do mundo."
+        },
+
+        pergunta18: {
+            pergunta: "18. Quando você percebe que cometeu um erro, qual costuma ser sua reação?",
+            DET: "Tento corrigir o problema antes que ele cresça.",
+            BRA: "Assumo a responsabilidade e procuro resolver a situação diretamente.",
+            JUS: "Procuro entender o que me levou a cometê-lo.",
+            PAC: "Não me desespero e resolvo uma coisa de cada vez.",
+            BON: "Penso em quem pode ter sido afetado pela situação.",
+            PER: "Tento aprender com a experiência e seguir em frente.",
+            INT: "Admito o erro, mesmo que seja desconfortável."
+        },
+
+        pergunta19: {
+            pergunta: "19. Imagine que você encontrou uma porta misteriosa em uma região desconhecida. O que faria?",
+            DET: "Se tivesse decidido entrar, não desistiria até encontrar uma solução.",
+            BRA: "Tentaria descobrir o que existe do outro lado.",
+            JUS: "Procuraria informações sobre quem construiu aquele lugar.",
+            PAC: "Observaria a porta e o ambiente em busca de pistas.",
+            BON: "Verificaria se abrir a porta poderia colocar alguém em risco.",
+            PER: "Procuraria uma maneira de abri-la, mesmo que exigisse várias tentativas.",
+            INT: "Pensaria se realmente vale a pena entrar antes de tomar uma decisão."
+        },
+
+        pergunta20: {
+            pergunta: "20. Qual dessas situações seria mais satisfatória para você?",
+            DET: "Conseguir concluir algo que parecia distante no começo.",
+            BRA: "Fazer algo que sempre teve vontade, mesmo com receio.",
+            JUS: "Descobrir algo que poucas pessoas tinham percebido.",
+            PAC: "Conseguir manter a tranquilidade em um momento complicado.",
+            BON: "Perceber que alguém ficou melhor depois de uma conversa com você.",
+            PER: "Encontrar uma solução depois de várias tentativas diferentes.",
+            INT: "Realizar algo de uma maneira que represente verdadeiramente suas ideias."
+        },
+
+        pergunta21: {
+            pergunta: "21. Se você pudesse mudar uma pequena coisa no mundo, o que escolheria?",
+            DET: "Que ninguém precisasse abandonar seus objetivos por falta de incentivo.",
+            BRA: "Que as pessoas tivessem mais coragem para experimentar coisas novas.",
+            JUS: "Que todos tivessem oportunidades mais equilibradas.",
+            PAC: "Que todos aprendessem a respeitar o tempo de cada um.",
+            BON: "Que as pessoas tivessem mais facilidade para compreender umas às outras.",
+            PER: "Que os erros fossem vistos como parte natural do aprendizado.",
+            INT: "Que as pessoas tivessem mais liberdade para serem quem são."
+        },
+
+        pergunta22: {
+            pergunta: "22. Você está participando de uma atividade em equipe e percebe que o grupo está ficando desmotivado. Como reagiria?",
+            DET: "Lembraria ao grupo o motivo pelo qual começaram.",
+            BRA: "Assumiria uma parte mais difícil para incentivar os outros.",
+            JUS: "Tentaria identificar o que está dificultando o trabalho.",
+            PAC: "Respeitaria o momento de cada um e evitaria pressionar.",
+            BON: "Procuraria conversar individualmente com quem parece desanimado.",
+            PER: "Tentaria trazer uma ideia nova para renovar o interesse.",
+            INT: "Incentivaria todos a contribuírem sem fingir entusiasmo."
+        },
+
+        pergunta23: {
+            pergunta: "23. Você encontra uma pessoa com opiniões completamente diferentes das suas. Qual seria sua postura?",
+            DET: "Manteria minha posição quando tivesse convicção sobre ela.",
+            BRA: "Não teria receio de discutir o assunto abertamente.",
+            JUS: "Faria perguntas para entender a lógica por trás de suas ideias.",
+            PAC: "Tentaria encontrar pontos em que nossas ideias se aproximam.",
+            BON: "Procuraria conhecer melhor sua história.",
+            PER: "Tentaria aprender algo novo com aquela perspectiva.",
+            INT: "Apresentaria minhas opiniões sem esconder minhas discordâncias."
+        },
+
+        pergunta24: {
+            pergunta: "24. Imagine que você está em uma cidade do Subsolo durante uma grande comemoração. O que mais gostaria de fazer?",
+            DET: "Ajudar na organização para que tudo aconteça como planejado.",
+            BRA: "Conhecer as atrações e experimentar tudo que fosse possível.",
+            JUS: "Observar como cada região organizou sua comemoração.",
+            PAC: "Aproveitar a festa tranquilamente, sem precisar correr de um lugar para outro.",
+            BON: "Conversar com os moradores e conhecer suas tradições.",
+            PER: "Participar de alguma atividade que exija dedicação ou habilidade.",
+            INT: "Procurar algo que tenha um significado especial para mim."
+        },
+
+        pergunta25: {
+            pergunta: "25. Quando você precisa tomar uma decisão importante, o que mais pesa na sua escolha?",
+            DET: "O quanto ela me aproxima do que quero alcançar.",
+            BRA: "Se estou disposto a lidar com os riscos envolvidos.",
+            JUS: "Se a decisão é coerente com os fatos e as circunstâncias.",
+            PAC: "Se tive tempo suficiente para considerar as possibilidades.",
+            BON: "As consequências que ela pode trazer para outras pessoas.",
+            PER: "Se consigo encontrar maneiras de lidar com possíveis dificuldades.",
+            INT: "O quanto aquela decisão está alinhada com meus princípios."
+        },
+
+        pergunta26: {
+            pergunta: "26. Se alguém lhe oferecesse a oportunidade de participar de um projeto completamente novo, qual seria seu maior interesse?",
+            DET: "Ter um objetivo interessante para trabalhar durante algum tempo.",
+            BRA: "Descobrir até onde minhas habilidades podem chegar.",
+            JUS: "Participar de algo que tenha uma proposta realmente significativa.",
+            PAC: "Entender como o projeto funciona antes de me envolver.",
+            BON: "Fazer parte de algo que possa beneficiar outras pessoas.",
+            PER: "Conhecer pessoas e perspectivas diferentes.",
+            INT: "Ter a chance de criar algo do meu próprio jeito."
+        },
+
+        pergunta27: {
+            pergunta: "27. Você está diante de um desafio que parece não ter uma solução evidente. O que mais provavelmente faria?",
+            DET: "Continuaria tentando até encontrar uma resposta satisfatória.",
+            BRA: "Tentaria resolver imediatamente, aprendendo durante o processo.",
+            JUS: "Analisaria cuidadosamente todas as informações disponíveis.",
+            PAC: "Faria uma pausa para observar o problema de outra perspectiva.",
+            BON: "Chamaria alguém para pensar junto comigo.",
+            PER: "Procuraria uma abordagem que ainda não foi considerada.",
+            INT: "Evitaria uma solução que exigisse abrir mão de algo essencial para mim."
+        },
+
+        pergunta28: {
+            pergunta: "28. Qual dessas pequenas conquistas teria mais significado para você?",
+            DET: "Ter concluído um projeto que exigiu bastante dedicação.",
+            BRA: "Ter conseguido fazer algo que antes parecia impossível.",
+            JUS: "Ter encontrado uma resposta para algo que me intrigava.",
+            PAC: "Ter aprendido a lidar melhor com uma situação que antes me incomodava.",
+            BON: "Ter construído uma relação de confiança com alguém.",
+            PER: "Ter conseguido superar uma dificuldade de uma maneira diferente.",
+            INT: "Ter permanecido fiel a uma decisão importante."
+        },
+
+        pergunta29: {
+            pergunta: "29. Se sua jornada pelo Subsolo estivesse chegando ao fim, o que gostaria de levar dessa experiência?",
+            DET: "A satisfação de ter chegado até o final do caminho.",
+            BRA: "A sensação de ter enfrentado situações que antes me assustavam.",
+            JUS: "As diferentes perspectivas que descobri durante a jornada.",
+            PAC: "A tranquilidade de saber que aproveitei cada etapa.",
+            BON: "A lembrança das pessoas que conheci pelo caminho.",
+            PER: "A experiência de ter encontrado soluções mesmo quando tudo parecia complicado.",
+            INT: "A certeza de que minhas escolhas tiveram significado."
+        },
+    }
+
+    let pergunta_atual = 1
+
+    let dicionario_respostas = {
+        res1: 0,
+        res2: 0,
+        res3: 0,
+        res4: 0,
+        res5: 0,
+        res6: 0,
+        res7: 0,
+        res8: 0,
+        res9: 0,
+        res10: 0,
+        res11: 0,
+        res12: 0,
+        res13: 0,
+        res14: 0,
+        res15: 0,
+        res16: 0,
+        res17: 0,
+        res18: 0,
+        res19: 0,
+        res20: 0,
+        res21: 0,
+        res22: 0,
+        res23: 0,
+        res24: 0,
+        res25: 0,
+        res26: 0,
+        res27: 0,
+        res28: 0,
+        res29: 0,
+        res30: 0
+    }
+
+    function comecar() {
+        home_quiz.className = "desativo"
+        container_perguntas.className = ""
+
+        pergunta.innerHTML = dicionario_perguntas.pergunta1.pergunta
+
+        resposta1.innerHTML = `<span>1.</span> ${dicionario_perguntas.pergunta1.DET}`
+        resposta2.innerHTML = `<span>2.</span> ${dicionario_perguntas.pergunta1.BRA}`
+        resposta3.innerHTML = `<span>3.</span> ${dicionario_perguntas.pergunta1.JUS}`
+        resposta4.innerHTML = `<span>4.</span> ${dicionario_perguntas.pergunta1.PAC}`
+        resposta5.innerHTML = `<span>5.</span> ${dicionario_perguntas.pergunta1.BON}`
+        resposta6.innerHTML = `<span>6.</span> ${dicionario_perguntas.pergunta1.PER}`
+        resposta7.innerHTML = `<span>7.</span> ${dicionario_perguntas.pergunta1.INT}`
+    }
+
+    function mudar_pergunta(x) {
+        pergunta.innerHTML = dicionario_perguntas[`pergunta${x}`].pergunta
+
+        resposta1.innerHTML = `<span>1.</span> ${dicionario_perguntas[`pergunta${x}`].DET}`
+        resposta2.innerHTML = `<span>2.</span> ${dicionario_perguntas[`pergunta${x}`].BRA}`
+        resposta3.innerHTML = `<span>3.</span> ${dicionario_perguntas[`pergunta${x}`].JUS}`
+        resposta4.innerHTML = `<span>4.</span> ${dicionario_perguntas[`pergunta${x}`].PAC}`
+        resposta5.innerHTML = `<span>5.</span> ${dicionario_perguntas[`pergunta${x}`].BON}`
+        resposta6.innerHTML = `<span>6.</span> ${dicionario_perguntas[`pergunta${x}`].PER}`
+        resposta7.innerHTML = `<span>7.</span> ${dicionario_perguntas[`pergunta${x}`].INT}`
+    }
+
+    function mudar_ativos(a) {
+        let p = document.getElementById(`p${a}`)
+        let n = document.getElementById(`n${a}`)
+
+        p.style.backgroundColor = "#8f0202"
+
+        n.style.color = "#ffff00"
+    }
+
+    function mudar_30() {
+        pergunta.innerHTML = "30. Qual desses personagens de Undertale é o seu favorito?"
+
+        let container = document.getElementById('container_respostas')
+
+        container.style.flexDirection = "row"
+
+        container.innerHTML = `
+            <a onclick="escolher_resposta(v = 1)" class="personagem">
+                <img src="../assets/imgs/toriel.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 2)" class="personagem">
+                <img src="../assets/imgs/sans.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 3)" class="personagem">
+                <img src="../assets/imgs/papyrus.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 4)" class="personagem">
+                <img src="../assets/imgs/undyne.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 5)" class="personagem">
+                <img src="../assets/imgs/alphys.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 6)" class="personagem">
+                <img src="../assets/imgs/mettaton.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 7)" class="personagem">
+                <img src="../assets/imgs/asgoredreemurr.svg" alt="">
+            </a>
+
+            <a onclick="escolher_resposta(v = 8)" class="personagem">
+                <img src="../assets/imgs/asrieldreemurr.svg" alt="">
+            </a>
+        `
+    }
+
+    function finalizar_quiz() {
+        container_perguntas.className = "desativo"
+        finalizacao_quiz.className = ""
+
+        // DET, BRA, JUS, PAC, BON, PER, INT
+        let lista_qnt = [0, 0, 0, 0, 0, 0, 0]
+
+        let maior_alma = 0
+        let maior_qnt = 0
+
+        let personagem_fav = dicionario_respostas.res30
+
+        for (let i = 1; i <= 29; i++) {
+            if (dicionario_respostas[`res${i}`] == 1) {
+                lista_qnt[0]++
+            } else if (dicionario_respostas[`res${i}`] == 2) {
+                lista_qnt[1]++
+            } else if (dicionario_respostas[`res${i}`] == 3) {
+                lista_qnt[2]++
+            } else if (dicionario_respostas[`res${i}`] == 4) {
+                lista_qnt[3]++
+            } else if (dicionario_respostas[`res${i}`] == 5) {
+                lista_qnt[4]++
+            } else if (dicionario_respostas[`res${i}`] == 6) {
+                lista_qnt[5]++
+            } else {
+                lista_qnt[6]++
+            }
+
+            for (let x = 0; x < 7; x++) {
+                if (lista_qnt[x] > maior_qnt) {
+                    maior_alma = x
+                    maior_qnt = lista_qnt[x]
+                }
+            }
+        }
+
+        if (maior_alma == 0) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "red"
+            desc.style.color = "red"
+
+            nome.innerHTML = `DETERMINAÇÃO`
+            img_alma.innerHTML = `<img src="../assets/imgs/determinacao.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que não desiste facilmente dos próprios objetivos. Mesmo diante de dificuldades, encontra motivos para continuar e acredita que suas escolhas podem mudar o caminho à sua frente.`
+        } else if (maior_alma == 1) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "orange"
+            desc.style.color = "orange"
+
+            nome.innerHTML = `BRAVURA`
+            img_alma.innerHTML = `<img src="../assets/imgs/bravura.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que não tem medo de enfrentar desafios e sair da própria zona de conforto. Mesmo diante do desconhecido, prefere agir a permanecer parado, encarando as dificuldades com coragem e confiança.`
+        } else if (maior_alma == 2) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "yellow"
+            desc.style.color = "yellow"
+
+            nome.innerHTML = `JUSTIÇA`
+            img_alma.innerHTML = `<img src="../assets/imgs/justica.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que valoriza o que é certo e não gosta de presenciar injustiças. Acredita que suas atitudes podem fazer a diferença e procura defender aquilo que considera justo, mesmo quando isso exige posicionamento.`
+        } else if (maior_alma == 3) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "cyan"
+            desc.style.color = "cyan"
+
+            nome.innerHTML = `PACIÊNCIA`
+            img_alma.innerHTML = `<img src="../assets/imgs/paciencia.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que entende que nem tudo acontece no seu próprio tempo. Prefere observar, refletir e compreender as situações antes de agir, sabendo que algumas conquistas exigem calma e persistência.`
+        } else if (maior_alma == 4) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "green"
+            desc.style.color = "green"
+
+            nome.innerHTML = `BONDADE`
+            img_alma.innerHTML = `<img src="../assets/imgs/bondade.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que se preocupa genuinamente com as pessoas ao seu redor. Procura compreender os sentimentos dos outros, oferecer ajuda quando necessário e acredita que pequenos gestos podem transformar o dia de alguém.`
+        } else if (maior_alma == 5) {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "purple"
+            desc.style.color = "purple"
+
+            nome.innerHTML = `PERSEVERANÇA`
+            img_alma.innerHTML = `<img src="../assets/imgs/perseveranca.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que consegue continuar mesmo quando os resultados parecem distantes. Não se deixa definir pelos obstáculos e entende que cada tentativa representa uma oportunidade de aprender, evoluir e chegar mais longe.`
+        } else {
+            let nome = document.getElementById("nome_alma")
+            let desc = document.getElementById("descricao")
+
+            nome.style.color = "blue"
+            desc.style.color = "blue"
+
+            nome.innerHTML = `INTEGRIDADE`
+            img_alma.innerHTML = `<img src="../assets/imgs/integridade.svg" alt="">`
+
+            desc.innerHTML = `Você é alguém que valoriza seus princípios e procura permanecer fiel àquilo em que acredita. Prefere agir com honestidade e coerência, mesmo quando seria mais fácil abrir mão dos próprios valores.`
+        }
+    }
+
+    function escolher_resposta(v) {
+        dicionario_respostas[`res${pergunta_atual}`] = v
+
+        mudar_ativos(a = pergunta_atual)
+
+        if (pergunta_atual < 29) {
+            pergunta_atual++
+
+            mudar_pergunta(x = pergunta_atual)
+        } else if (pergunta_atual == 29) {
+            pergunta_atual++
+            mudar_30()
+        } else {
+            finalizar_quiz()
+        }
+    }
+
+    function voltar_pos_30() {
+        let container = document.getElementById('container_respostas')
+
+        container.style.flexDirection = "column"
+
+        container.innerHTML = `
+            <div><a id="resposta1" onclick="escolher_resposta(v = 1)">
+                <span>1.</span>
+            </a></div>
+
+            <div><a id="resposta2" onclick="escolher_resposta(v = 2)">
+                <span>2.</span>
+            </a></div>
+
+            <div><a id="resposta3" onclick="escolher_resposta(v = 3)">
+                <span>3.</span>
+            </a></div>
+
+            <div><a id="resposta4" onclick="escolher_resposta(v = 4)">
+                <span>4.</span>
+            </a></div>
+
+            <div><a id="resposta5" onclick="escolher_resposta(v = 5)">
+                <span>5.</span>
+            </a></div>
+
+            <div><a id="resposta6" onclick="escolher_resposta(v = 6)">
+                <span>6.</span>
+            </a></div>
+
+            <div><a id="resposta7" onclick="escolher_resposta(v = 7)">
+                <span>7.</span>
+            </a></div>
+        `
+    }
+
+    function voltar_home() {
+        voltar_pos_30()
+
+        let p
+        let n
+
+        for (let i = 1; i <= 30; i++) {
+            dicionario_respostas[`res${i}`] = 0
+
+            p = document.getElementById(`p${i}`)
+            n = document.getElementById(`n${i}`)
+
+            p.style.backgroundColor = "transparent"
+
+            n.style.color = "#fffafa"
+        }
+
+        pergunta_atual = 1
+
+        home_quiz.className = ""
+        container_perguntas.className = "desativo"
+        finalizacao_quiz.className = "desativo"
+    }
+
+    function voltar_pergunta() {
+        if (pergunta_atual != 1) {
+            if (pergunta_atual == 30) {
+                voltar_pos_30()
+            }
+
+            let p = document.getElementById(`p${pergunta_atual - 1}`)
+            let n = document.getElementById(`n${pergunta_atual - 1}`)
+
+            p.style.backgroundColor = "transparent"
+
+            n.style.color = "#fffafa"
+
+            pergunta_atual--
+
+            dicionario_respostas[`res${pergunta_atual}`] = 0
+
+            mudar_pergunta(x = pergunta_atual)
+        } else {
+            voltar_home()
+        }
+    }
+
+    
 </script>
 
 </html>

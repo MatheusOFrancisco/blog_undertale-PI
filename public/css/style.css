@@ -107,6 +107,8 @@ body {
 button {
     font-family: 'mercy', sans-serif;
     outline: #eb7a23 0.3rem solid;
+    outline-offset: -0.3rem;
+
     border-radius: 1rem;
     cursor: pointer;
     color: #eb7a23;
@@ -317,6 +319,151 @@ footer {
                     height: 1rem;
                 }
             }
+        }
+    }
+}
+
+/* --------------------------------- AREA USUARIO ------------------------------------------------------------------*/
+
+#barra_lateral {
+    position: absolute;
+    top: 1vh;
+    left: 0.5vw;
+
+    z-index: 100;
+
+    outline: solid #fffafa 0.5rem;
+    outline-offset: -0.6rem;
+    border-radius: 0.5rem;
+
+    height: 98vh;
+    width: 6vw;
+    background-color: #0b0c10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 0.3s ease-in-out;
+
+    div {
+        width: 95%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        nav {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+
+            a {
+                width: 100%;
+                height: 4.5rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+
+                color: #8389a0;
+                text-decoration: none;
+
+                #logo,
+                #logout {
+                    height: 2rem;
+                }
+
+                img {
+                    height: 1.5rem;
+                }
+
+                label {
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    display: none;
+
+                    cursor: pointer;
+                }
+            }
+
+            .ativo {
+                background-color: #00093a;
+            }
+        }
+    }
+
+    #cima {
+        margin-top: 0.5rem;
+    }
+
+    #baixo {
+        margin-bottom: 0.5rem;
+    }
+}
+
+#barra_lateral:hover {
+    width: 10vw;
+
+    label {
+        display: flex !important;
+    }
+
+    #a_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+#barra_lateral #meio a:hover,
+#baixo a:hover {
+    background-color: #00093a;
+}
+
+#barra_lateral:has(#meio .desativo:hover) .ativo,
+#barra_lateral:has(#baixo a:hover) .ativo {
+    background-color: #0b0c10;
+}
+
+#main {
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    background: radial-gradient(circle, #00093a 0%, #0b0c10 100%);
+
+    main {
+        margin-left: 5vw;
+        height: 97%;
+        width: 90%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        #locate {
+            height: 4vh;
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #9ea9da;
         }
     }
 }

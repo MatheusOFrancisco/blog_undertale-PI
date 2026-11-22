@@ -1,0 +1,105 @@
+main {
+    #container_kpis {
+        height: 20vh;
+
+        display: flex;
+        justify-content: space-between;
+
+        .kpi {
+            height: 100%;
+            width: 30%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 0.5rem;
+
+            background-color: #0D0E14;
+
+            outline: 0.2rem solid #3A3F54;
+            outline-offset: -0.3rem;
+
+            border-radius: 0.5rem;
+
+            .titulo_kpi {
+                color: #fffafa;
+                font-weight: bolder;
+                font-size: 1.5rem;
+            }
+
+            .subtitulo_kpi {
+                color: #e8ecff;
+                font-size: 1.5rem;
+
+                span {
+                    color: #ffff00;
+                }
+            }
+
+            .principal {
+                font-size: 2.5rem;
+                font-weight: bolder;
+            }
+
+            #alma_kpi {
+                color: red;
+            }
+
+            #posi_personagem {
+                color: #fffafa;
+
+                span {
+                    color: red;
+                }
+            }
+
+            #almaP_kpi {
+                color: orange;
+            }
+        }
+    }
+
+    #container_graficos {
+        height: 68vh;
+
+        display: flex;
+        justify-content: space-between;
+
+        .container_rankings {
+            width: 65%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .ranking {
+                height: 45%;
+
+                background-color: #0D0E14;
+
+                outline: 0.2rem solid #3A3F54;
+                outline-offset: -0.2rem;
+
+                border-radius: 0.5rem;
+            }
+        }
+
+        .container_pizza {
+            width: 30%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #0D0E14;
+
+            outline: 0.2rem solid #3A3F54;
+            outline-offset: -0.2rem;
+
+            border-radius: 0.5rem;
+
+            #pizza {}
+        }
+    }
+}

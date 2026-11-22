@@ -729,6 +729,78 @@
             }
         }
 
+        alert(sessionStorage.POSSUI_RESULTADO)
+
+        if (sessionStorage.POSSUI_RESULTADO == "Não") {
+            fetch("/respostas/cadastrarResposta", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    personagemServer: dicionario_respostas.res30,
+                    almaServer: maior_alma + 1,
+                    usuarioServer: sessionStorage.ID_USUARIO,
+                    // DET, BRA, JUS, PAC, BON, PER, INT
+                    detServer: lista_qnt[0],
+                    braServer: lista_qnt[1],
+                    jusServer: lista_qnt[2],
+                    pacServer: lista_qnt[3],
+                    bonServer: lista_qnt[4],
+                    perServer: lista_qnt[5],
+                    intServer: lista_qnt[6],
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        console.log('enviado com sucesso!')
+                        verificar_resultado()
+                    } else {
+                        throw console.log('deu ruim ae');
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        } else {
+            fetch("/respostas/alterarResposta", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    respostaServer: sessionStorage.POSSUI_RESULTADO,
+                    personagemServer: dicionario_respostas.res30,
+                    almaServer: maior_alma + 1,
+                    usuarioServer: sessionStorage.ID_USUARIO,
+                    // DET, BRA, JUS, PAC, BON, PER, INT
+                    detServer: lista_qnt[0],
+                    braServer: lista_qnt[1],
+                    jusServer: lista_qnt[2],
+                    pacServer: lista_qnt[3],
+                    bonServer: lista_qnt[4],
+                    perServer: lista_qnt[5],
+                    intServer: lista_qnt[6],
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        console.log('alterado com sucesso!')
+                        verificar_resultado()
+                    } else {
+                        throw console.log('deu ruim aqui');
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        }
+
+
         if (maior_alma == 0) {
             let nome = document.getElementById("nome_alma")
             let desc = document.getElementById("descricao")
@@ -908,8 +980,6 @@
             voltar_home()
         }
     }
-
-    
 </script>
 
 </html>

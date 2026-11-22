@@ -26,22 +26,24 @@ function trocar_alma() {
 }
 
 function verificar_resultado() {
-        fetch(`resultados/resultado/${sessionStorage.ID_USUARIO}`, { method: "GET", headers: { "Content-Type": "application/json" } }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+    fetch(`/resultados/resultado/${sessionStorage.ID_USUARIO}`, { method: "GET", headers: { "Content-Type": "application/json" } }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
 
-                    sessionStorage.POSSUI_RESULTADO = resposta
+                if (resposta.length > 0) {
+                    sessionStorage.POSSUI_RESULTADO = JSON.stringify(resposta[0].id)
+                } else {
+                    sessionStorage.POSSUI_RESULTADO = "Não"
+                }
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-
-                sessionStorage.POSSUI_RESULTADO = "Não"
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-    }
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}

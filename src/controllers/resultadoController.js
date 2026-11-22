@@ -1,15 +1,11 @@
-var medidaModel = require("../models/resultadoModel");
+var resultadoModel = require("../models/resultadoModel");
 
 function buscarResultadoQuiz(req, res) {
 
     const idReg = req.params.idUsuario;
 
-    medidaModel.buscarUltimasMedidas(idReg).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
+    resultadoModel.buscarResultadoQuiz(idReg).then(function (resultado) {
+        res.status(200).json(resultado);
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar o resultado.", erro.sqlMessage);
